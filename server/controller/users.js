@@ -35,3 +35,8 @@ export const updateprofile=async(req,res)=>{
         return
     }
 }
+
+
+export const sendPasswordLink = async (req,res) => {
+    console.log(req.body)
+}
