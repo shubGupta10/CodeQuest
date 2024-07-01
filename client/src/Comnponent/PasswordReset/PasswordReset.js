@@ -20,9 +20,9 @@ const PasswordReset = () => {
                 }
             });
 
-            if (response.status === 200) {
+            if (response.status === 201) {
                 setEmail("");
-                alert("Email sent")
+                alert("Email sent Successfully");
             }
         } catch (error) {
             console.error("Error sending password reset link", error);

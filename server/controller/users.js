@@ -55,7 +55,8 @@ export const updateprofile=async(req,res)=>{
     }
 }
 
-
+//got a little help of youtube
+//used some web to work with jwt
 export const sendPasswordLink = async (req,res) => {
     console.log(req.body);
 

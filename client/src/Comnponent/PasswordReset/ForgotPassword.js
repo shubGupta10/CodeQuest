@@ -15,7 +15,7 @@ const ForgotPassword = () => {
       if (status === 201) {
         console.log('User valid');
       } else {
-        navigate('/user-not-valid');
+        navigate('/');
       }
     } catch (error) {
       console.error('Error validating user:', error);
@@ -42,10 +42,14 @@ const ForgotPassword = () => {
       if (status === 201) {
         setPassword('');
         console.log('Password reset successfully');
+        alert("Password reset successfully")
+        navigate("/");
       } else {
+        alert("Failed to reset the password, Please try again");
         console.log('User not found or failed to reset password');
       }
     } catch (error) {
+      alert("Caught some error, Please try again!");
       console.error('Error resetting password:', error.response?.data || error.message);
     }
   };

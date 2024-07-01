@@ -8,8 +8,8 @@ import Displayquestion from './pages/Question/Displayquestion'
 import Tags from './pages/Tags/Tags'
 import Users from './pages/Users/Users'
 import Userprofile from './pages/Userprofile/Userprofile'
-import PasswordReset from './Comnponent/Password Reset/PasswordReset'
-import ForgotPassword from './Comnponent/Password Reset/ForgotPassword'
+import PasswordReset from './Comnponent/PasswordReset/PasswordReset'
+import ForgotPassword from './Comnponent/PasswordReset/ForgotPassword'
 
 function Allroutes({slidein,handleslidein}) {
   return (
