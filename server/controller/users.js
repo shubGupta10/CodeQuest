@@ -186,6 +186,7 @@ export const sendOtp = async (req, res) => {
 }
 
 
+// used little help of chatGpt to find an error 
 export const verifyOTP = async (req, res) => {
     try {
         const {phoneNumber, otp} = req.body;
@@ -225,6 +226,8 @@ export const verifyOTP = async (req, res) => {
     }
 }
 
+
+//got a little help from YouTube.
 export const updatePasswordBasedonOTP = async (req, res) => {
     const { phoneNumber, otp, newPassword } = req.body;
     try {
