@@ -10,6 +10,9 @@ import Users from './pages/Users/Users'
 import Userprofile from './pages/Userprofile/Userprofile'
 import PasswordReset from './Comnponent/PasswordReset/PasswordReset'
 import ForgotPassword from './Comnponent/PasswordReset/ForgotPassword'
+import ChooseOption from './Comnponent/PasswordReset/ChooseOption'
+import SendOTP from './Comnponent/PasswordReset/PasswordWithOTP/SendOTP'
+import VerifyOTP from './Comnponent/PasswordReset/PasswordWithOTP/VerifyOTP'
 
 function Allroutes({slidein,handleslidein}) {
   return (
@@ -22,8 +25,11 @@ function Allroutes({slidein,handleslidein}) {
         <Route path='/Tags' element={<Tags slidein={slidein} handleslidein={handleslidein}/>}/>
         <Route path='/Users' element={<Users slidein={slidein} handleslidein={handleslidein}/>}/>
         <Route path='/Users/:id' element={<Userprofile slidein={slidein} handleslidein={handleslidein}/>}/>
+        <Route path='/choose' element={<ChooseOption slidein={slidein} handleslidein={handleslidein}/>}/>
         <Route path='/password-reset' element={<PasswordReset slidein={slidein} handleslidein={handleslidein} />}/>
         <Route path='/forgotpassword/:id/:token' element={<ForgotPassword slidein={slidein} handleslidein={handleslidein} />}/>
+        <Route path='/send-otp' element={<SendOTP slidein={slidein} handleslidein={handleslidein} />}/>
+        <Route path='/verify-otp' element={<VerifyOTP slidein={slidein}  handleslidein={handleslidein}/>}/>
     </Routes>
   )
 }

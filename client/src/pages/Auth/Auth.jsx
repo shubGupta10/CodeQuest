@@ -71,7 +71,7 @@ const Auth = () => {
             <div style={{ display: "flex", justifyContent: "space-between" }}>
               <h4>Password</h4>
               {!issignup && (
-                <Link to="/password-reset">
+                <Link to="/choose">
                   <p
                     style={{
                       color: "#007ac6",

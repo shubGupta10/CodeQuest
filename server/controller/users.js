@@ -4,11 +4,21 @@ import bcrypt from 'bcryptjs'
 import nodemailer from 'nodemailer';
 import jwt from 'jsonwebtoken'
 import dotenv from 'dotenv'
+import optgenerator from 'otp-generator'
+import twilio from 'twilio'
+import {otpValidation} from './OtpValidate.js'
 
 
 dotenv.config();
 
 const secretkey = process.env.JWT_SECRET
+
+//twilio config
+
+const twilioAccountSID = process.env.TWILIO_ACCOUNT_SID;
+const twilioAuthToken = process.env.TWILIO_AUTH_TOKEN;
+
+const twilioSetup = twilio(twilioAccountSID, twilioAuthToken);
 
 //email configuration
 
@@ -72,7 +82,7 @@ export const sendPasswordLink = async (req,res) => {
 
         //generating tokens for reset link
         const token = jwt.sign({_id:findUserintoDB._id}, secretkey,{
-            expiresIn:"1d"
+            expiresIn:"120s"
         });
 
         const  storeTokentoDb = await users.findByIdAndUpdate({_id:findUserintoDB._id}, {verifiedToken: token}, {new: true});
@@ -141,3 +151,99 @@ export const passwordUpdate = async (req, res) => {
   };
   
   
+
+export const sendOtp = async (req, res) => {
+    try {
+
+        const {phoneNumber} = req.body;
+
+        const otp = optgenerator.generate(6, {lowerCaseAlphabets: false, specialChars: false});
+
+        const newdate = new Date();
+
+         await users.findOneAndUpdate(
+            {phoneNumber},
+            {otp, otpExpired: new Date(newdate.getTime())},
+            {upsert: true, new: true, setDefaultOnInsert: true}
+        )
+
+        await twilioSetup.messages.create({
+            body: `Your Otp is: ${otp}`,
+            to: phoneNumber,
+            from: process.env.TWILIO_PHONE_NUMBER
+        });
+
+        return res.status(200).json({
+            success: true,
+            msg: "OTP sent successfully"
+        });
+    } catch (error) {
+        return res.status(400).json({
+            success: false,
+            msg: error.message
+        })
+    }
+}
+
+
+export const verifyOTP = async (req, res) => {
+    try {
+        const {phoneNumber, otp} = req.body;
+
+        const otpData = await users.findOne({
+            phoneNumber,
+            otp
+        });
+
+        if(!otpData){
+            return res.status(400).json({
+                success: false,
+                msg: "Your entered wrong Otp!"
+            });
+        }
+
+        const isOtpVerified = await otpValidation(otpData.otpExpired);
+
+        if(isOtpVerified){
+            return res.status(400).json({
+                success: false,
+                msg: "Your OTP has been expired!"
+            })
+        }
+
+        return res.status(200).json({
+            success: true,
+            msg: "Your OTP Verified Successfully!"
+        })
+
+
+    } catch (error) {
+        return res.status(400).json({
+            success: false,
+            msg: error.message
+        })
+    }
+}
+
+export const updatePasswordBasedonOTP = async (req, res) => {
+    const { phoneNumber, otp, newPassword } = req.body;
+    try {
+        const user = await users.findOne({ phoneNumber, otp });
+        if (!user) {
+            return res.status(400).json({ success: false, msg: "Invalid OTP or phone number" });
+        }
+        const isOtpValid = await otpValidation(user.otpExpired);
+        if (isOtpValid) {
+            return res.status(400).json({ success: false, msg: "OTP has expired" });
+        }
+        const hashedPassword = await bcrypt.hash(newPassword, 12);
+        await users.findByIdAndUpdate(user._id, {
+            password: hashedPassword,
+            $unset: { otp: "", otpExpired: "" }
+        });
+        res.status(200).json({ success: true, msg: "Password updated successfully" });
+    } catch (error) {
+        console.error("Error updating password:", error);
+        res.status(500).json({ success: false, msg: "Failed to change password. Please try again." });
+    }
+};  
