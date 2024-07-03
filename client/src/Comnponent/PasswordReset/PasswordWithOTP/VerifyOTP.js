@@ -73,7 +73,7 @@ const VerifyOTP = () => {
         type="text"
         onChange={handlePhoneNumberChange}
         value={phoneNumber}
-        placeholder="Enter your phone number with country code (e.g., +91)"
+        placeholder="Please your phone number again!"
         className="input"
       />
       <input

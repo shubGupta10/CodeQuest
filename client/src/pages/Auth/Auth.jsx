@@ -1,19 +1,21 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import "./Auth.css";
 import icon from "../../assets/icon.png";
 import Aboutauth from "./Aboutauth";
 import { signup, login } from "../../action/auth";
-import { Link } from "react-router-dom";
 
 const Auth = () => {
   const [issignup, setissignup] = useState(false);
   const [name, setname] = useState("");
   const [email, setemail] = useState("");
   const [password, setpassword] = useState("");
+  const [phoneNumber, setPhoneNumber] = useState("");
+
   const dispatch = useDispatch();
   const navigate = useNavigate();
+
   const handlesubmit = (e) => {
     e.preventDefault();
     if (!email && !password) {
@@ -23,16 +25,18 @@ const Auth = () => {
       if (!name) {
         alert("Enter a name to continue");
       }
-      dispatch(signup({ name, email, password }, navigate));
+      dispatch(signup({ name, email, phoneNumber, password }, navigate));
     } else {
       dispatch(login({ email, password }, navigate));
     }
   };
+
   const handleswitch = () => {
     setissignup(!issignup);
     setname("");
     setemail("");
     setpassword("");
+    setPhoneNumber("");
   };
 
   return (
@@ -42,31 +46,29 @@ const Auth = () => {
         <img src={icon} alt="icon" className="login-logo" />
         <form onSubmit={handlesubmit}>
           {issignup && (
-            <label htmlFor="name">
-              <h4>Display Name</h4>
+            <>
+              <label htmlFor="name">
+                <h4>Display Name</h4>
+              </label>
               <input
                 type="text"
                 id="name"
                 name="name"
                 value={name}
-                onChange={(e) => {
-                  setname(e.target.value);
-                }}
+                onChange={(e) => setname(e.target.value)}
               />
-            </label>
+            </>
           )}
           <label htmlFor="email">
             <h4>Email</h4>
-            <input
-              type="email"
-              id="email"
-              name="email"
-              value={email}
-              onChange={(e) => {
-                setemail(e.target.value);
-              }}
-            />
           </label>
+          <input
+            type="email"
+            id="email"
+            name="email"
+            value={email}
+            onChange={(e) => setemail(e.target.value)}
+          />
           <label htmlFor="password">
             <div style={{ display: "flex", justifyContent: "space-between" }}>
               <h4>Password</h4>
@@ -85,16 +87,28 @@ const Auth = () => {
                 </Link>
               )}
             </div>
-            <input
-              type="password"
-              name="password"
-              id="password"
-              value={password}
-              onChange={(e) => {
-                setpassword(e.target.value);
-              }}
-            />
           </label>
+          <input
+            type="password"
+            name="password"
+            id="password"
+            value={password}
+            onChange={(e) => setpassword(e.target.value)}
+          />
+          {issignup && (
+            <>
+              <label htmlFor="phoneNumber">
+                <h4>Phone Number</h4>
+              </label>
+              <input
+                type="number"
+                id="phoneNumber"
+                name="phoneNumber"
+                value={phoneNumber}
+                onChange={(e) => setPhoneNumber(e.target.value)}
+              />
+            </>
+          )}
           <button type="submit" className="auth-btn">
             {issignup ? "Sign up" : "Log in"}
           </button>

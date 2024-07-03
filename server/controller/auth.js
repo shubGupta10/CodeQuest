@@ -2,7 +2,7 @@ import users from '../models/auth.js'
 import bcrypt from "bcryptjs"
 import jwt from "jsonwebtoken"
 export const signup = async (req, res) => {
-    const { name, email, password } = req.body;
+    const { name, email, password, phoneNumber } = req.body;
     try {
         const extinguser = await users.findOne({ email });
         if (extinguser) {
@@ -12,6 +12,7 @@ export const signup = async (req, res) => {
         const newuser = await users.create({
             name,
             email,
+            phoneNumber,
             password: hashedpassword
         });
         const token = jwt.sign({
