@@ -23,7 +23,8 @@ const SendOTP = () => {
       navigate("/verify-otp")
     } catch (error) {
       console.error("Failed to send otp:", error);
-      setMessage("Failed to send OTP. Please try again later.");
+      // Twilio is a safe and paid service so, we cant send otp to unknown numbers, only registered numbers are allowed.
+      setMessage("Register your account on Twilio. Please try again with registered account.");
       setMessageColor('red'); 
     }
   };
@@ -34,7 +35,7 @@ const SendOTP = () => {
       <p className="subtitle">Please enter your phone number including the country code (e.g., +91 for India)</p>
       <input
         type="text"
-        placeholder="E.g., +911234567890"
+        placeholder="E.g., +911287377689"
         className="input"
         value={phoneNumber}
         onChange={handleChange}
