@@ -22,6 +22,8 @@ const VerifyOTP = () => {
     setNewPassword(e.target.value);
   };
 
+                  //***********Context for code*************** */
+  // taken little help of chatGpt to find a little bug in the webapp
   const verifyOTPmessage = async () => {
     try {
       const response = await axios.post("http://localhost:5000/user/verify-otp", {

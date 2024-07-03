@@ -27,6 +27,8 @@ const ForgotPassword = () => {
     userValid();
   }, []);
 
+  //used an little help of web to look about Params
+
   const sendPassword = async (e) => {
     e.preventDefault();
 

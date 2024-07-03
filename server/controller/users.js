@@ -131,6 +131,7 @@ export const verifyUserwithIDToken = async (req, res) => {
   
 
 
+  // used little help of youtube to fix issue in code.
 export const passwordUpdate = async (req, res) => {
     const { id, token } = req.params;
     const { password } = req.body;
@@ -152,6 +153,8 @@ export const passwordUpdate = async (req, res) => {
   
   
 
+  //Got little help of youtube to see setup of Twilio
+  // got little help of chatGpt to fix the issues and little bugs into UI.
 export const sendOtp = async (req, res) => {
     try {
 
@@ -227,7 +230,7 @@ export const verifyOTP = async (req, res) => {
 }
 
 
-//got a little help from YouTube.
+//got a little help from web to fix issue about user Id.
 export const updatePasswordBasedonOTP = async (req, res) => {
     const { phoneNumber, otp, newPassword } = req.body;
     try {
