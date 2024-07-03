@@ -26,6 +26,7 @@ const PasswordReset = () => {
             }
         } catch (error) {
             console.error("Error sending password reset link", error);
+            alert("Failed to send password link, Please try again!");
             setMessage(true);
         }
     }

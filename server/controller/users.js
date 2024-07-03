@@ -82,7 +82,7 @@ export const sendPasswordLink = async (req,res) => {
 
         //generating tokens for reset link
         const token = jwt.sign({_id:findUserintoDB._id}, secretkey,{
-            expiresIn:"120s"
+            expiresIn:"1h"
         });
 
         const  storeTokentoDb = await users.findByIdAndUpdate({_id:findUserintoDB._id}, {verifiedToken: token}, {new: true});
@@ -94,7 +94,7 @@ export const sendPasswordLink = async (req,res) => {
                 from: "shubhamkgupta720@gmail.com",
                 to: email,
                 subject: "Sending email to reset password",
-                text: `This link will expires in 2 minutes http://localhost:3000/forgotpassword/${findUserintoDB.id}/${findUserintoDB.verifiedToken}`
+                text: `This link will expires in 1 hour http://localhost:3000/forgotpassword/${findUserintoDB.id}/${findUserintoDB.verifiedToken}`
             }
 
             transporter.sendMail(mailOptions, (error, info) => {
