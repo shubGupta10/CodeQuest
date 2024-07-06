@@ -4,6 +4,7 @@ import axios from 'axios';
 
 const PasswordReset = () => {
     const [email, setEmail] = useState("");
+    const [loading, setLoading] = useState(false);
     const [message, setMessage] = useState("");
 
     const setVal = (e) => {
@@ -12,6 +13,7 @@ const PasswordReset = () => {
 
     const sendLink = async (e) => {
         e.preventDefault();
+        setLoading(true);
 
         try {
             const response = await axios.post("http://localhost:5000/user/sendpasswordlink", { email }, {
@@ -22,10 +24,12 @@ const PasswordReset = () => {
 
             if (response.status === 201) {
                 setEmail("");
+                setLoading(false);
                 alert("Email sent Successfully");
             }
         } catch (error) {
             console.error("Error sending password reset link", error);
+            setLoading(false);
             alert("Failed to send password link, Please try again!");
             setMessage(true);
         }
@@ -45,7 +49,9 @@ const PasswordReset = () => {
                         className="auth-input" 
                         required 
                     />
-                    <button type="submit" className="auth-btn">Send</button>
+                    <button type="submit" className="auth-btn" disabled={loading}>
+                        {loading ? "Sending..." : "Send"}
+                    </button>
                 </form>
             </div>
         </section>
