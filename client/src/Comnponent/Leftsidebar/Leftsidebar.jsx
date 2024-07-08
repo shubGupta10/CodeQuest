@@ -2,7 +2,13 @@ import React from 'react'
 import './Leftsidebar.css'
 import { NavLink } from 'react-router-dom'
 import Globe from "../../assets/Globe.svg"
+import { useTranslation } from 'react-i18next'
+
+
 const Leftsidebar = ({ slidein }) => {
+
+  const {t} = useTranslation();
+
   const slideinstyle = {
     transform: "translateX(0%)",
   };
@@ -14,27 +20,27 @@ const Leftsidebar = ({ slidein }) => {
       <nav className='side-nav'>
         <button className="nav-btnn">
           <NavLink to='/' className="side-nav-links" activeclassname='active'>
-            <p>Home</p>
+            <p>{t('leftsidebar.hometext')}</p>
           </NavLink>
         </button>
         <div className="side-nav-div">
           <div>
-            <p>PUBLIC</p>
+            <p>{t('leftsidebar.publictext')}</p>
           </div>
           <button className='nav-btnn'>
             <NavLink to='/Question' className='side-nav-links' activeclassname='active'>
             <img src={Globe} alt="globe" />
-            <p style={{paddingLeft:'10px'}}>Questions</p>
+            <p style={{paddingLeft:'10px'}}>{t('leftsidebar.questiontext')}</p>
             </NavLink>
           </button>
           <button className='nav-btnn'>
             <NavLink to='/Tags' className='side-nav-links' activeclassname='active' style={{paddingLeft:"40px"}}>
-            <p >Tags</p>
+            <p >{t('leftsidebar.tagstext')}</p>
             </NavLink>
           </button>
           <button className='nav-btnn'>
             <NavLink to='/Users' className='side-nav-links' activeclassname='active' style={{paddingLeft:"40px"}}>
-            <p >Users</p>
+            <p >{t('leftsidebar.userstext')}</p>
             </NavLink>
           </button>
         </div>

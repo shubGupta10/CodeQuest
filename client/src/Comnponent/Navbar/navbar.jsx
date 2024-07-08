@@ -8,6 +8,7 @@ import Avatar from '../Avatar/Avatar';
 import './navbar.css';
 import {setcurrentuser} from '../../action/currentuser'
 import {jwtDecode} from "jwt-decode"
+import LanguageSwitcher from '../LanguageSwitcher/LanguageSwitcher';
 function Navbar({ handleslidein }) {
     var User = useSelector((state)=>state.currentuserreducer)
     const navigate = useNavigate()
@@ -48,10 +49,12 @@ function Navbar({ handleslidein }) {
                     <Link to="/" className="nav-item nav-btn res-nav">
                         For Teams
                     </Link>
+                    <LanguageSwitcher/>
                     <form><input type="text" placeholder='Search...' />
                         <img src={search} alt="search" width='18' className='search-icon' />
                     </form>
                 </div>
+
                 <div className="navbar-2">
                     {User === null ? (
                         <Link to='/Auth' className='nav-item nav-links'>

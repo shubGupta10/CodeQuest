@@ -5,6 +5,7 @@ import "./Auth.css";
 import icon from "../../assets/icon.png";
 import Aboutauth from "./Aboutauth";
 import { signup, login } from "../../action/auth";
+import { useTranslation } from 'react-i18next'; // Corrected import
 
 const Auth = () => {
   const [issignup, setissignup] = useState(false);
@@ -12,6 +13,7 @@ const Auth = () => {
   const [email, setemail] = useState("");
   const [password, setpassword] = useState("");
   const [phoneNumber, setPhoneNumber] = useState("");
+  const { t } = useTranslation(); // Corrected hook
 
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -19,11 +21,11 @@ const Auth = () => {
   const handlesubmit = (e) => {
     e.preventDefault();
     if (!email && !password) {
-      alert("Enter email and password");
+      alert(t('auth.successAlert'));
     }
     if (issignup) {
       if (!name) {
-        alert("Enter a name to continue");
+        alert(t("auth.nameEnter"));
       }
       dispatch(signup({ name, email, phoneNumber, password }, navigate));
     } else {
@@ -48,7 +50,7 @@ const Auth = () => {
           {issignup && (
             <>
               <label htmlFor="name">
-                <h4>Display Name</h4>
+                <h4>{t('auth.displayName')}</h4>
               </label>
               <input
                 type="text"
@@ -60,7 +62,7 @@ const Auth = () => {
             </>
           )}
           <label htmlFor="email">
-            <h4>Email</h4>
+            <h4>{t('auth.email')}</h4>
           </label>
           <input
             type="email"
@@ -71,7 +73,7 @@ const Auth = () => {
           />
           <label htmlFor="password">
             <div style={{ display: "flex", justifyContent: "space-between" }}>
-              <h4>Password</h4>
+              <h4>{t('auth.password')}</h4>
               {!issignup && (
                 <Link to="/choose">
                   <p
@@ -82,7 +84,7 @@ const Auth = () => {
                       textDecoration: "none",
                     }}
                   >
-                    Forgot Password?
+                    {t('auth.forgotPassword')}
                   </p>
                 </Link>
               )}
@@ -98,7 +100,7 @@ const Auth = () => {
           {issignup && (
             <>
               <label htmlFor="phoneNumber">
-                <h4>Phone Number</h4>
+                <h4>{t('auth.phoneNumber')}</h4>
               </label>
               <input
                 type="number"
@@ -110,17 +112,17 @@ const Auth = () => {
             </>
           )}
           <button type="submit" className="auth-btn">
-            {issignup ? "Sign up" : "Log in"}
+            {issignup ? t('auth.signup') : t('auth.login')}
           </button>
         </form>
         <p>
-          {issignup ? "Already have an account?" : "Don't have an account"}
+          {issignup ? t('auth.alreadyHaveAccount') : t('auth.dontHaveAccount')}
           <button
             type="button"
             className="handle-switch-btn"
             onClick={handleswitch}
           >
-            {issignup ? "Log in" : "Sign up"}
+            {issignup ? t('auth.login') : t('auth.signup')}
           </button>
         </p>
       </div>
