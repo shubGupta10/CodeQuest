@@ -9,7 +9,11 @@ import './navbar.css';
 import {setcurrentuser} from '../../action/currentuser'
 import {jwtDecode} from "jwt-decode"
 import LanguageSwitcher from '../LanguageSwitcher/LanguageSwitcher';
+import { useTranslation } from 'react-i18next';
+
+
 function Navbar({ handleslidein }) {
+    const {t} = useTranslation();
     var User = useSelector((state)=>state.currentuserreducer)
     const navigate = useNavigate()
     const dispatch=useDispatch();
@@ -41,13 +45,13 @@ function Navbar({ handleslidein }) {
                         <img src={logo} alt="logo" />
                     </Link>
                     <Link to="/" className="nav-item nav-btn res-nav">
-                        About
+                        {t('navbar.abouttext')}
                     </Link>
                     <Link to="/" className="nav-item nav-btn res-nav">
-                        Products
+                        {t('navbar.producttext')}
                     </Link>
                     <Link to="/" className="nav-item nav-btn res-nav">
-                        For Teams
+                        {t('navbar.forteamtext')}
                     </Link>
                     <LanguageSwitcher/>
                     <form><input type="text" placeholder='Search...' />
@@ -58,7 +62,7 @@ function Navbar({ handleslidein }) {
                 <div className="navbar-2">
                     {User === null ? (
                         <Link to='/Auth' className='nav-item nav-links'>
-                            Log in
+                            {t('navbar.login')}
                         </Link>
                     ) : (
                         <>
@@ -67,7 +71,7 @@ function Navbar({ handleslidein }) {
                                 {User.result.name.charAt(0).toUpperCase()}
                                 </Link>
                             </Avatar>
-                            <button className="nav-tem nav-links" onClick={handlelogout}>Log out</button>
+                            <button className="nav-tem nav-links" onClick={handlelogout}>{t('navbar.logout')}</button>
                         </>
                     )}
                 </div>
