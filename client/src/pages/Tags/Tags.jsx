@@ -5,6 +5,8 @@ import './Tags.css';
 import { tagsList } from './tagslist';
 import { useTranslation } from 'react-i18next';
 
+// ***********Taken little chatgpt help******************88
+//used little help of stack overflow and chatgpt to fix the issue and error in this code.
 const Tags = ({ slidein }) => {
     const { t } = useTranslation();
 

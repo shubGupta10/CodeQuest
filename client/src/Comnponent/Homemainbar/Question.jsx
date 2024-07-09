@@ -5,6 +5,7 @@ import { useTranslation } from 'react-i18next';
 
 const translationCache = {};
 
+//getting help of Claude.Ai and little help of stackOverflow.
 const Question = ({ question }) => {
   const { t, i18n } = useTranslation();
   const [translatedTitle, setTranslatedTitle] = useState(question.questiontitle);
@@ -21,7 +22,8 @@ const Question = ({ question }) => {
       setTranslatedTitle(translationCache[cacheKey]);
       return;
     }
-
+// **********************************Got little help of claudeAI***************************
+    //little helped with claude Ai to fix some error and issue.
     try {
       const response = await fetch(`https://api.mymemory.translated.net/get?q=${encodeURIComponent(question.questiontitle)}&langpair=en|${storedLang}`);
       const data = await response.json();

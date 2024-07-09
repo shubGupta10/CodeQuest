@@ -9,6 +9,8 @@ import frTranslation from './locales/fr.json'
 import ptTranslation from './locales/pt.json'
 import zhTranslation from './locales/zh.json'
 
+//used little help of claude.AI to get the idea of this process.
+
 //i18n package helps us to create multi language system.
 i18n
     .use(LanguageDetector)
