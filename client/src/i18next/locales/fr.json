@@ -1,0 +1,101 @@
+{
+    "auth": {
+      "joinCommunity": "Rejoignez la communauté Stack Overflow",
+      "askQuestion": "Débloquez-vous — posez une question",
+      "unlockPrivileges": "Débloquez de nouveaux privilèges comme voter et commenter",
+      "saveFavorites": "Enregistrez vos tags, filtres et emplois préférés",
+      "earnReputation": "Gagnez en réputation et en badges",
+      "collaborate": "Collaborez et partagez des connaissances avec un groupe privé pour",
+      "teamsFree": "Obtenez Stack Overflow for Teams gratuitement pour jusqu'à 50 utilisateurs.",
+      "successAlert": "Entrez votre email et mot de passe",
+      "nameEnter": "Entrez un nom pour continuer",
+      "displayName": "Nom d'affichage",
+      "email": "Email",
+      "password": "Mot de passe",
+      "phoneNumber": "Numéro de téléphone",
+      "login": "Se connecter",
+      "signup": "S'inscrire",
+      "alreadyHaveAccount": "Vous avez déjà un compte ?",
+      "dontHaveAccount": "Vous n'avez pas de compte ?",
+      "forgotPassword": "Mot de passe oublié ?"
+    },
+    "leftsidebar": {
+      "hometext": "Accueil",
+      "publictext": "PUBLIC",
+      "questiontext": "Questions",
+      "tagstext": "Tags",
+      "userstext": "Utilisateurs"
+    },
+    "askQuestion": {
+      "title": "Posez une question publique",
+      "titleLabel": "Titre",
+      "bodyLabel": "Corps",
+      "tagsLabel": "Tags",
+      "submitButton": "Revoir votre question"
+    },
+    "homemainbar": {
+      "usernullAlert": "Connectez-vous ou inscrivez-vous pour poser une question",
+      "topQuestion": "Questions principales",
+      "AllQuestion": "Toutes les questions",
+      "askQuestions": "Poser une question",
+      "h1loading": "Chargement...",
+      "questions": "questions",
+      "noQuestions": "Aucune question disponible",
+      "askQuestionBtn": "Poser une question",
+      "mainHeader": {
+        "topQuestions": "Questions principales",
+        "allQuestions": "Toutes les questions"
+      }
+    },
+    "QuestionHome": {
+      "votes": "Votes",
+      "answers": "Réponses",
+      "questionsLength": "",
+      "answersCount": "{{count}} Réponse",
+      "answersCount_plural": "{{count}} Réponses",
+      "asked": "posé",
+      "upvotes": ""
+    },
+    "Rightsidebar": {
+      "title": "Le Blog Overflow",
+      "observatorytext": "L'observabilité est la clé de l'avenir du logiciel et de votre carrière DevOps",
+      "podcasetext": "Podcast 374 : Quelle est la valeur de votre nom d'utilisateur ?",
+      "featuredonmeta": "En vedette sur Meta",
+      "reviewqueue": "Flux de travail de la file d'attente de révision - Version finale....",
+      "pentext": "Veuillez accueillir les Associés précieux : #958 - V2Blast #959 - SpencerG",
+      "pensecondtext": " Réponses obsolètes : la réponse acceptée n'est plus épinglée sur Stack Overflow",
+      "hotmetapots": "Articles Meta Chauds",
+      "whythisspam": "Pourquoi ce signalement de spam a-t-il été refusé, mais la question marquée comme spam ?",
+      "bestcourse": "Quelle est la meilleure action à entreprendre lorsqu'un utilisateur a suffisamment de réputation pour...",
+      "howtoask": "Un lien vers la page d'aide \"Comment poser une question\" est-il un commentaire utile ?"
+    },
+    "navbar": {
+      "abouttext": "À propos",
+      "producttext": "Produits",
+      "forteamtext": "Pour les équipes",
+      "login": "Se connecter",
+      "logout": "Se déconnecter"
+    },
+    "users": {
+      "username": "Utilisateurs"
+    },
+
+    "Tags": {
+        "title": "Étiquettes",
+        "tagdef": "Une étiquette est un mot-clé ou un label qui catégorise votre question avec d'autres questions similaires.",
+        "tagdefsecond": "Utiliser les bonnes étiquettes facilite la recherche et la réponse à votre question par les autres."
+    },
+    "tags": {
+        "javascript": "Pour des questions concernant la programmation en ECMAScript (JavaScript/JS) et ses divers dialectes/implémentations (à l'exclusion d'ActionScript). Veuillez inclure toutes les étiquettes pertinentes sur votre question;",
+        "python": "Python est un langage de programmation multiparadigme, typé dynamiquement et polyvalent. Il est conçu pour être rapide à apprendre, comprendre et utiliser, et applique une syntaxe propre et uniforme.",
+        "csharp": "C# (prononcé 'see sharp') est un langage de programmation multiparadigme, typé statiquement et de haut niveau développé par Microsoft.",
+        "java": "Java est un langage de programmation orienté objet de haut niveau. Utilisez cette étiquette lorsque vous rencontrez des problèmes d'utilisation ou de compréhension du langage.",
+        "php": "PHP est un langage de script généraliste, multiparadigme, typé dynamiquement et interprété largement utilisé, conçu à l'origine pour le développement web côté serveur.",
+        "html": "HTML (HyperText Markup Language) est le langage de balisage pour créer des pages web et d'autres informations à afficher dans un navigateur web.",
+        "android": "Android est le système d'exploitation mobile de Google, utilisé pour programmer ou développer des appareils numériques (Smartphones, Tablettes, Automobiles, TVs, Wear, Glass, IoT).",
+        "css": "CSS est un langage de feuilles de style utilisé pour décrire l'apparence et le formatage des documents HTML, XML et des éléments SVG, y compris les couleurs, la mise en page, les polices et les animations.",
+        "reactjs": "React est une bibliothèque JavaScript pour créer des interfaces utilisateur. Il utilise un paradigme déclaratif basé sur les composants et vise à être à la fois efficace et flexible.",
+        "nodejs": "Node.js est un environnement d'exécution d'E/S asynchrone, non bloquant, basé sur des événements qui utilise le moteur JavaScript V8 de Google et la bibliothèque libuv."
+    }
+  }
+  

@@ -61,6 +61,9 @@
         "upvotes": ""
     },
 
+
+    
+
     "Rightsidebar": {
     "title": "The Overflow Blog",
     "observatorytext": "Observability is key to the future of software and your DevOps career",
@@ -88,6 +91,25 @@
 
     "users": {
         "username": "Users"
+    },
+
+
+    "Tags": {
+        "title": "Tags",
+        "tagdef": "A tag is a keyword or label that categorizes your question with other similar questions.",
+        "tagdefsecond": "Using the right tags makes it easier for others to find and answer your question."
+    },
+    "tags": {
+        "javascript": "For questions regarding programming in ECMAScript (JavaScript/JS) and its various dialects/implementations (excluding ActionScript). Please include all relevant tags on your question;",
+        "python": "Python is a multi-paradigm, dynamically typed, multipurpose programming language. It is designed to be quick to learn, understand, and use, and enforces a clean and uniform syntax.",
+        "csharp": "C# (pronounced 'see sharp') is a high level, statically typed, multi-paradigm programming language developed by Microsoft.",
+        "java": "Java is a high-level object oriented programming language. Use this tag when you're having problems using or understanding the language itself.",
+        "php": "PHP is a widely used, open source, general-purpose, multi-paradigm, dynamically typed and interpreted scripting language originally designed for server-side web development.",
+        "html": "HTML (HyperText Markup Language) is the markup language for creating web pages and other information to be displayed in a web browser.",
+        "android": "Android is Google's mobile operating system, used for programming or developing digital devices (Smartphones, Tablets, Automobiles, TVs, Wear, Glass, IoT).",
+        "css": "CSS is a representation style sheet language used for describing the look and formatting of HTML, XML documents and SVG elements including colors, layout, fonts, and animations.",
+        "reactjs": "React is a JavaScript library for building user interfaces. It uses a declarative, component-based paradigm and aims to be both efficient and flexible.",
+        "nodejs": "Node.js is an event-based, non-blocking, asynchronous I/O runtime that uses Google's V8 JavaScript engine and libuv library."
     }
 
 

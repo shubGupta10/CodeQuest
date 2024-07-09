@@ -1,0 +1,101 @@
+{
+    "auth": {
+      "joinCommunity": "加入 Stack Overflow 社区",
+      "askQuestion": "解惑 — 提问",
+      "unlockPrivileges": "解锁新的特权，如投票和评论",
+      "saveFavorites": "保存你喜欢的标签、过滤器和工作",
+      "earnReputation": "获得声望和徽章",
+      "collaborate": "与私有团队合作和分享知识",
+      "teamsFree": "最多 50 名用户免费获取 Stack Overflow for Teams。",
+      "successAlert": "输入邮箱和密码",
+      "nameEnter": "输入一个名字以继续",
+      "displayName": "显示名称",
+      "email": "电子邮件",
+      "password": "密码",
+      "phoneNumber": "电话号码",
+      "login": "登录",
+      "signup": "注册",
+      "alreadyHaveAccount": "已经有账号？",
+      "dontHaveAccount": "没有账号？",
+      "forgotPassword": "忘记密码？"
+    },
+    "leftsidebar": {
+      "hometext": "首页",
+      "publictext": "公共",
+      "questiontext": "问题",
+      "tagstext": "标签",
+      "userstext": "用户"
+    },
+    "askQuestion": {
+      "title": "提一个公开问题",
+      "titleLabel": "标题",
+      "bodyLabel": "正文",
+      "tagsLabel": "标签",
+      "submitButton": "审核你的问题"
+    },
+    "homemainbar": {
+      "usernullAlert": "登录或注册以提问",
+      "topQuestion": "热门问题",
+      "AllQuestion": "所有问题",
+      "askQuestions": "提问",
+      "h1loading": "加载中...",
+      "questions": "问题",
+      "noQuestions": "没有可用的问题",
+      "askQuestionBtn": "提问",
+      "mainHeader": {
+        "topQuestions": "热门问题",
+        "allQuestions": "所有问题"
+      }
+    },
+    "QuestionHome": {
+      "votes": "投票",
+      "answers": "答案",
+      "questionsLength": "",
+      "answersCount": "{{count}} 答案",
+      "answersCount_plural": "{{count}} 答案",
+      "asked": "提问于",
+      "upvotes": ""
+    },
+    "Rightsidebar": {
+      "title": "Overflow 博客",
+      "observatorytext": "可观察性是软件未来和你 DevOps 职业生涯的关键",
+      "podcasetext": "播客 374：你的用户名有多重要？",
+      "featuredonmeta": "Meta 上的精选内容",
+      "reviewqueue": "审核队列工作流 - 最终发布....",
+      "pentext": "请欢迎尊敬的合作伙伴：#958 - V2Blast #959 - SpencerG",
+      "pensecondtext": " 过时的答案：被接受的答案现在未固定在 Stack Overflow 上",
+      "hotmetapots": "热门 Meta 文章",
+      "whythisspam": "为什么这个垃圾邮件标记被拒绝，但问题被标记为垃圾邮件？",
+      "bestcourse": "当用户有足够的声望时，最佳的行动方案是什么...",
+      "howtoask": "\"如何提问\" 帮助页面的链接是有用的评论吗？"
+    },
+    "navbar": {
+      "abouttext": "关于",
+      "producttext": "产品",
+      "forteamtext": "团队版",
+      "login": "登录",
+      "logout": "登出"
+    },
+    "users": {
+      "username": "用户"
+    },
+
+    "Tags": {
+        "title": "标签",
+        "tagdef": "标签是一个关键字或标签，将您的问题与其他类似问题进行分类。",
+        "tagdefsecond": "使用正确的标签可以让其他人更容易找到和回答您的问题。"
+    },
+    "tags": {
+        "javascript": "关于编程的 ECMAScript (JavaScript/JS) 及其各种方言/实现（不包括 ActionScript）的问题。请在您的问题中包含所有相关标签;",
+        "python": "Python 是一种多范式、动态类型、多用途的编程语言。它旨在快速学习、理解和使用，并强制执行干净和统一的语法。",
+        "csharp": "C#（发音为 'see sharp'）是由微软开发的高级静态类型多范式编程语言。",
+        "java": "Java 是一种高级面向对象的编程语言。在您遇到使用或理解该语言的问题时，请使用此标签。",
+        "php": "PHP 是一种广泛使用的开源通用多范式动态类型解释型脚本语言，最初设计用于服务器端 Web 开发。",
+        "html": "HTML（超文本标记语言）是创建网页和其他在网页浏览器中显示的信息的标记语言。",
+        "android": "Android 是 Google 的移动操作系统，用于编程或开发数字设备（智能手机、平板电脑、汽车、电视、穿戴设备、眼镜、物联网）。",
+        "css": "CSS 是一种表示样式表语言，用于描述 HTML、XML 文档和 SVG 元素的外观和格式，包括颜色、布局、字体和动画。",
+        "reactjs": "React 是一个用于构建用户界面的 JavaScript 库。它使用声明式、基于组件的范式，旨在既高效又灵活。",
+        "nodejs": "Node.js 是一个基于事件的非阻塞异步 I/O 运行时，使用 Google 的 V8 JavaScript 引擎和 libuv 库。"
+    }
+  }
+  

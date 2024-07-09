@@ -1,0 +1,101 @@
+{
+    "auth": {
+      "joinCommunity": "Junte-se à comunidade do Stack Overflow",
+      "askQuestion": "Desbloqueie-se — faça uma pergunta",
+      "unlockPrivileges": "Desbloqueie novos privilégios como votar e comentar",
+      "saveFavorites": "Salve suas tags, filtros e empregos favoritos",
+      "earnReputation": "Ganhe reputação e insígnias",
+      "collaborate": "Colabore e compartilhe conhecimento com um grupo privado para",
+      "teamsFree": "Obtenha o Stack Overflow para Times grátis para até 50 usuários.",
+      "successAlert": "Digite e-mail e senha",
+      "nameEnter": "Digite um nome para continuar",
+      "displayName": "Nome de exibição",
+      "email": "E-mail",
+      "password": "Senha",
+      "phoneNumber": "Número de telefone",
+      "login": "Entrar",
+      "signup": "Inscrever-se",
+      "alreadyHaveAccount": "Já tem uma conta?",
+      "dontHaveAccount": "Não tem uma conta?",
+      "forgotPassword": "Esqueceu a senha?"
+    },
+    "leftsidebar": {
+      "hometext": "Início",
+      "publictext": "PÚBLICO",
+      "questiontext": "Perguntas",
+      "tagstext": "Tags",
+      "userstext": "Usuários"
+    },
+    "askQuestion": {
+      "title": "Faça uma pergunta pública",
+      "titleLabel": "Título",
+      "bodyLabel": "Corpo",
+      "tagsLabel": "Tags",
+      "submitButton": "Revise sua pergunta"
+    },
+    "homemainbar": {
+      "usernullAlert": "Entre ou inscreva-se para fazer uma pergunta",
+      "topQuestion": "Principais Perguntas",
+      "AllQuestion": "Todas as Perguntas",
+      "askQuestions": "Faça uma Pergunta",
+      "h1loading": "Carregando...",
+      "questions": "perguntas",
+      "noQuestions": "Nenhuma pergunta disponível",
+      "askQuestionBtn": "Faça uma Pergunta",
+      "mainHeader": {
+        "topQuestions": "Principais Perguntas",
+        "allQuestions": "Todas as Perguntas"
+      }
+    },
+    "QuestionHome": {
+      "votes": "Votos",
+      "answers": "Respostas",
+      "questionsLength": "",
+      "answersCount": "{{count}} Resposta",
+      "answersCount_plural": "{{count}} Respostas",
+      "asked": "perguntado",
+      "upvotes": ""
+    },
+    "Rightsidebar": {
+      "title": "O Blog Overflow",
+      "observatorytext": "A observabilidade é fundamental para o futuro do software e sua carreira em DevOps",
+      "podcasetext": "Podcast 374: Quão valioso é o seu nome de usuário?",
+      "featuredonmeta": "Destaque no Meta",
+      "reviewqueue": "Fluxos de trabalho da fila de revisão - Lançamento final....",
+      "pentext": "Por favor, dê as boas-vindas aos Associados Valiosos: #958 - V2Blast #959 - SpencerG",
+      "pensecondtext": " Respostas desatualizadas: a resposta aceita agora está desafixada no Stack Overflow",
+      "hotmetapots": "Publicações Meta Quentes",
+      "whythisspam": "Por que esta bandeira de spam foi recusada, mas a pergunta marcada como spam?",
+      "bestcourse": "Qual é o melhor curso de ação quando um usuário tem reputação suficiente para...",
+      "howtoask": "Um link para a página de ajuda \"Como perguntar\" é um comentário útil?"
+    },
+    "navbar": {
+      "abouttext": "Sobre",
+      "producttext": "Produtos",
+      "forteamtext": "Para Equipes",
+      "login": "Entrar",
+      "logout": "Sair"
+    },
+    "users": {
+      "username": "Usuários"
+    },
+
+    "Tags": {
+      "title": "Tags",
+      "tagdef": "Uma tag é uma palavra-chave ou rótulo que categoriza sua pergunta com outras perguntas semelhantes.",
+      "tagdefsecond": "Usar as tags certas facilita para os outros encontrarem e responderem sua pergunta."
+  },
+  "tags": {
+      "javascript": "Para perguntas sobre programação em ECMAScript (JavaScript/JS) e seus vários dialetos/implementações (excluindo ActionScript). Por favor, inclua todas as tags relevantes na sua pergunta;",
+      "python": "Python é uma linguagem de programação multiparadigma, tipada dinamicamente e de propósito geral. Ela é projetada para ser rápida de aprender, entender e usar, e aplica uma sintaxe limpa e uniforme.",
+      "csharp": "C# (pronunciado 'see sharp') é uma linguagem de programação multiparadigma, tipada estaticamente e de alto nível desenvolvida pela Microsoft.",
+      "java": "Java é uma linguagem de programação orientada a objetos de alto nível. Use esta tag quando estiver com problemas para usar ou entender a linguagem.",
+      "php": "PHP é uma linguagem de script amplamente utilizada, de código aberto, de propósito geral, multiparadigma, tipada dinamicamente e interpretada, originalmente projetada para desenvolvimento web do lado do servidor.",
+      "html": "HTML (HyperText Markup Language) é a linguagem de marcação para criar páginas web e outras informações a serem exibidas em um navegador web.",
+      "android": "Android é o sistema operacional móvel do Google, usado para programar ou desenvolver dispositivos digitais (Smartphones, Tablets, Automóveis, TVs, Wear, Glass, IoT).",
+      "css": "CSS é uma linguagem de folhas de estilo de representação usada para descrever a aparência e formatação de documentos HTML, XML e elementos SVG, incluindo cores, layout, fontes e animações.",
+      "reactjs": "React é uma biblioteca JavaScript para construir interfaces de usuário. Ele utiliza um paradigma declarativo baseado em componentes e visa ser eficiente e flexível.",
+      "nodejs": "Node.js é um ambiente de execução de I/O assíncrono, não bloqueante, baseado em eventos, que utiliza o motor de JavaScript V8 do Google e a biblioteca libuv."
+  }
+  }
+  

@@ -253,3 +253,13 @@ export const updatePasswordBasedonOTP = async (req, res) => {
         res.status(500).json({ success: false, msg: "Failed to change password. Please try again." });
     }
 };  
+
+
+
+const translateUserText =  async () => {
+    try {
+        
+    } catch (error) {
+        
+    }
+}

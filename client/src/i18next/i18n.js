@@ -4,6 +4,10 @@ import { initReactI18next } from 'react-i18next'
 
 import enTranslation from './locales/en.json'
 import hiTranslation from './locales/hi.json'
+import esTranslation from './locales/es.json'
+import frTranslation from './locales/fr.json'
+import ptTranslation from './locales/pt.json'
+import zhTranslation from './locales/zh.json'
 
 //i18n package helps us to create multi language system.
 i18n
@@ -22,6 +26,18 @@ i18n
             hi: {
                 translation: hiTranslation,
             },
+            es: {
+                translation: esTranslation,
+            },
+            fr: {
+                translation: frTranslation,
+            },
+            pt: {
+                translation: ptTranslation,
+            },
+            zh: {
+                translation: zhTranslation,
+            }
         }
     });
 
