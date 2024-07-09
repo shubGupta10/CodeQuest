@@ -256,10 +256,3 @@ export const updatePasswordBasedonOTP = async (req, res) => {
 
 
 
-const translateUserText =  async () => {
-    try {
-        
-    } catch (error) {
-        
-    }
-}
