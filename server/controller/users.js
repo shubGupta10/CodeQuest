@@ -256,3 +256,84 @@ export const updatePasswordBasedonOTP = async (req, res) => {
 
 
 
+//************************** Used helped with chatgpt and stack over flow ***********************88 */
+
+
+//used help of youtube to build logic for the code.
+export const sendOtpForLanguage = async (req, res) => {
+    try {
+        const { phoneNumber } = req.body;
+        const otp = optgenerator.generate(6, { lowerCaseAlphabets: false, specialChars: false });
+        const newdate = new Date();
+
+        await users.findOneAndUpdate(
+            { phoneNumber },
+            { 
+                otp, 
+                otpExpired: new Date(newdate.getTime()),
+                otpPurpose: 'languageChange'
+            },
+            { upsert: true, new: true, setDefaultOnInsert: true }
+        );
+
+        await twilioSetup.messages.create({
+            body: `Your OTP for language change is: ${otp}`,
+            to: phoneNumber,
+            from: process.env.TWILIO_PHONE_NUMBER
+        });
+
+        return res.status(200).json({
+            success: true,
+            msg: "OTP for language change sent successfully"
+        });
+    } catch (error) {
+        return res.status(400).json({
+            success: false,
+            msg: error.message
+        });
+    }
+}
+
+//used help of chatGpt to fix some error and also got helped of stack overflow to build logic
+export const verifyOtpForLanguage = async (req, res) => {
+    try {
+        const { phoneNumber, otp, langCode } = req.body;
+        if (langCode === 'en') {
+            return res.status(200).json({
+                success: true,
+                msg: "Language changed to English successfully!"
+            });
+        }
+        const otpData = await users.findOne({
+            phoneNumber,
+            otp
+        });
+        if (!otpData) {
+            return res.status(400).json({
+                success: false,
+                msg: "Invalid OTP. Please try again."
+            });
+        }
+        const isOtpExpired = await otpValidation(otpData.otpExpired);
+        if (isOtpExpired) {
+            return res.status(400).json({
+                success: false,
+                msg: "Your OTP has expired!"
+            });
+        }
+        await users.findOneAndUpdate(
+            { phoneNumber },
+            { $unset: { otp: 1, otpExpired: 1, otpPurpose: 1 } }
+        );
+        return res.status(200).json({
+            success: true,
+            msg: "OTP verified successfully!"
+        });
+    } catch (error) {
+        return res.status(400).json({
+            success: false,
+            msg: error.message
+        });
+    }
+}
+

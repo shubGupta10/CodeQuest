@@ -1,6 +1,6 @@
 import express from "express"
 import  {login,signup} from '../controller/auth.js'
-import { getallusers,updateprofile, sendPasswordLink, verifyUserwithIDToken, passwordUpdate, sendOtp, verifyOTP, updatePasswordBasedonOTP } from "../controller/users.js";
+import { getallusers,updateprofile, sendPasswordLink, verifyUserwithIDToken, passwordUpdate, sendOtp, verifyOTP, updatePasswordBasedonOTP, sendOtpForLanguage, verifyOtpForLanguage } from "../controller/users.js";
 import auth from "../middleware/auth.js"
 
 const router=express.Router();
@@ -25,6 +25,10 @@ router.post("/verify-otp", verifyOTP);
 
 //route to save password to db after verified
 router.put("/update-password", updatePasswordBasedonOTP)
+
+
+router.post("/sending-otp", sendOtpForLanguage);
+router.post("/verifying-otp", verifyOtpForLanguage);
 
 router.get("/getallusers",getallusers)
 

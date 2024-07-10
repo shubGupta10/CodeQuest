@@ -1,28 +1,35 @@
 import React, { useState } from "react";
 import { useTranslation } from "react-i18next";
 import { FaGlobe } from 'react-icons/fa';
+import { useNavigate } from "react-router-dom";
 import "./LanguageSwitcher.css";
 
 const LanguageSwitcher = () => {
     const { i18n } = useTranslation();
     const [isOpen, setIsOpen] = useState(false);
+    const navigate = useNavigate();
 
     const languages = [
         { code: 'en', name: 'English' },
         { code: 'hi', name: 'Hindi' },
-        {code: 'es', name: 'Spanish'},
-        {code: 'fr', name: 'French'},
-        {code: 'pt', name: 'Portuguese'},
-        {code: 'zh', name: 'Chinese'}
+        { code: 'es', name: 'Spanish' },
+        { code: 'fr', name: 'French' },
+        { code: 'pt', name: 'Portuguese' },
+        { code: 'zh', name: 'Chinese' }
     ];
 
     const toggleDropdown = () => {
         setIsOpen(!isOpen);
     };
 
-    const changeLanguage = (langCode) => {
-        i18n.changeLanguage(langCode);
-        setIsOpen(false);
+    const initiateLanguageChange = (langCode) => {
+        if (langCode === 'en') {
+            i18n.changeLanguage(langCode);
+            setIsOpen(false);
+        } else {
+            navigate('/sending-otp', { state: { langCode } });
+            setIsOpen(false);
+        }
     };
 
     return (
@@ -34,7 +41,7 @@ const LanguageSwitcher = () => {
                 <ul className="languageDropdown">
                     {languages.map((lang) => (
                         <li key={lang.code} className="languageOption">
-                            <button onClick={() => changeLanguage(lang.code)}>
+                            <button onClick={() => initiateLanguageChange(lang.code)}>
                                 {lang.name}
                             </button>
                         </li>
