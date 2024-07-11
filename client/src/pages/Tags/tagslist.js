@@ -47,7 +47,7 @@ export const tagsList = [
         "React is a JavaScript library for building user interfaces. It uses a declarative, component-based paradigm and aims to be both efficient and flexible.",
     },
     {
-      tagName: "node.js",
+      tagName: "nodejs",
       tagDesc:
         "Node.js is an event-based, non-blocking, asynchronous I/O runtime that uses Google's V8 JavaScript engine and libuv library. ",
     },

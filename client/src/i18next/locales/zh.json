@@ -124,7 +124,23 @@
     "placeholder": "输入OTP",
     "verifyotpbutton": "验证OTP",
     "verifyingh2": "验证中...."
+},
+
+
+"profilebio": {
+    "Tagswatch": "已观看的标签",
+    "tagswatched": "0 个已观看的标签",
+    "abouth4": "关于",
+    "nobio": "未找到简介"
+},
+
+
+ "userprofilepage": {
+    "joinedtext": "加入",
+    "editprofilebutton": "编辑资料"
 }
+
+
 
 
 

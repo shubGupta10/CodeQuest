@@ -137,6 +137,19 @@
         "placeholder": "Enter OTP",
         "verifyotpbutton": "Verify OTP",
         "verifyingh2": "Verifying...."
-    }
+    },
+
+    "profilebio": {
+        "Tagswatch": "Tags Watched",
+        "tagswatched": "0 Tags watched",
+        "abouth4": "About",
+        "nobio": "No bio found"
+    },
+
+    
+  "userprofilepage": {
+    "joinedtext": "Joined",
+    "editprofilebutton": "Edit Profile"
+}
 
 }

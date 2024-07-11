@@ -123,7 +123,21 @@
     "placeholder": "Entrez OTP",
     "verifyotpbutton": "Vérifiez OTP",
     "verifyingh2": "Vérification...."
+},
+
+"profilebio": {
+    "Tagswatch": "Étiquettes Regardées",
+    "tagswatched": "0 Étiquettes regardées",
+    "abouth4": "À propos",
+    "nobio": "Aucune biographie trouvée"
+},
+
+ "userprofilepage": {
+    "joinedtext": "Rejoint",
+    "editprofilebutton": "Éditer le profil"
 }
+
+
 
 
 

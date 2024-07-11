@@ -124,8 +124,19 @@
     "placeholder": "Ingrese OTP",
     "verifyotpbutton": "Verificar OTP",
     "verifyingh2": "Verificando...."
-}
+},
 
+"profilebio": {
+    "Tagswatch": "Etiquetas Vistas",
+    "tagswatched": "0 Etiquetas vistas",
+    "abouth4": "Acerca de",
+    "nobio": "No se encontró biografía"
+},
+
+ "userprofilepage": {
+    "joinedtext": "Se unió",
+    "editprofilebutton": "Editar perfil"
+}
 
 
   }

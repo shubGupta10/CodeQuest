@@ -8,7 +8,10 @@ import Editprofileform from './Edirprofileform'
 import Profilebio from './Profilebio'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faBirthdayCake, faPen } from '@fortawesome/free-solid-svg-icons'
+import { useTranslation } from 'react-i18next'
+
 const Userprofile = ({ slidein }) => {
+  const {t} = useTranslation();
   const { id } = useParams()
   const [Switch, setswitch] = useState(false);
 
@@ -32,7 +35,7 @@ const Userprofile = ({ slidein }) => {
               </div>
             </div>
             {currentuser?.result?._id === id && ( 
-              <button className="edit-profile-btn" type='button' onClick={() => setswitch(true)}><FontAwesomeIcon icon={faPen} /> Edit Profile</button>
+              <button className="edit-profile-btn" type='button' onClick={() => setswitch(true)}><FontAwesomeIcon icon={faPen} /> {t('userprofilepage.editprofilebutton')} </button>
             )}
           </div>
           <>
