@@ -96,6 +96,36 @@
         "css": "CSS est un langage de feuilles de style utilisé pour décrire l'apparence et le formatage des documents HTML, XML et des éléments SVG, y compris les couleurs, la mise en page, les polices et les animations.",
         "reactjs": "React est une bibliothèque JavaScript pour créer des interfaces utilisateur. Il utilise un paradigme déclaratif basé sur les composants et vise à être à la fois efficace et flexible.",
         "nodejs": "Node.js est un environnement d'exécution d'E/S asynchrone, non bloquant, basé sur des événements qui utilise le moteur JavaScript V8 de Google et la bibliothèque libuv."
-    }
+    },
+
+    "askQuestion": {
+    "headh1": "Posez une question publique",
+    "QuestionTitle": "Titre",
+    "questionPtag": "Soyez précis et imaginez que vous posez une question à une autre personne",
+    "askQuesBody": "Corps",
+    "placeholder": "par exemple, Existe-t-il une fonction R pour trouver l'index d'un élément dans un vecteur ?",
+    "askQuesBodyPtag": "Incluez toutes les informations nécessaires pour que quelqu'un puisse répondre à votre question",
+    "tags": "Étiquettes",
+    "addtags": "Ajoutez jusqu'à 5 étiquettes pour décrire de quoi parle votre question",
+    "reviewButton": "Revoyez votre question",
+    "placeholdersecond": "par exemple, (xml typescript wordpress"
+},
+
+"sendotppage": {
+    "h2": "Envoyer OTP pour changer la langue",
+    "placeholder": "Entrez le numéro de téléphone",
+    "sendotpbutton": "Envoyer OTP",
+    "sendingh2": "Envoi...."
+},
+
+"verifyotppage": {
+    "h2": "Vérifiez OTP pour changer la langue",
+    "placeholder": "Entrez OTP",
+    "verifyotpbutton": "Vérifiez OTP",
+    "verifyingh2": "Vérification...."
+}
+
+
+
   }
   

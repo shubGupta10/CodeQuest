@@ -3,6 +3,8 @@ import './Askquestion.css'
 import { useNavigate } from 'react-router-dom'
 import { useSelector, useDispatch } from "react-redux"
 import { askquestion } from '../../action/question'
+import {useTranslation} from 'react-i18next'
+
 const Askquestion = () => {
     const navigate = useNavigate();
     const dispatch=useDispatch();
@@ -10,6 +12,8 @@ const Askquestion = () => {
     const [questiontitle, setquestiontitle] = useState("");
     const [questionbody, setquestionbody] = useState("");
     const [questiontag, setquestiontags] = useState("")
+    const {t}=  useTranslation();
+
     const handlesubmit = (e) => {
         e.preventDefault();
         if (user) {
@@ -33,20 +37,20 @@ const Askquestion = () => {
     return (
         <div className="ask-question">
             <div className="ask-ques-container">
-                <h1>Ask a public Question</h1>
+                <h1>{t('askQuestion.headh1')}</h1>
                 <form onSubmit={handlesubmit}>
                     <div className="ask-form-container">
                         <label htmlFor="ask-ques-title">
-                            <h4>Title</h4>
-                            <p>Be specific and imagine you're asking a question to another person</p>
+                            <h4>{t('askQuestion.QuestionTitle')}</h4>
+                            <p>{t('askQuestion.questionPtag')}</p>
                             <input type="text" id="ask-ques-title"
                                 onChange={(e) => {
                                     setquestiontitle(e.target.value);
-                                }} placeholder='e.g. Is there an R function for finding the index of an element in a vector?' />
+                                }} placeholder={t('askQuestion.placeholder')} />
                         </label>
                         <label htmlFor="ask-ques-body">
-                            <h4>Body</h4>
-                            <p>Include all the information someone would need to answer your question</p>
+                            <h4>{t('askQuestion.askQuesBody')}</h4>
+                            <p>{t('askQuestion.askQuesBodyPtag')}</p>
                             <textarea name="" id="ask-ques-body" onChange={(e) => {
                                 setquestionbody(e.target.value);
 
@@ -57,17 +61,17 @@ const Askquestion = () => {
                             ></textarea>
                         </label>
                         <label htmlFor="ask-ques-tags">
-                            <h4>Tags</h4>
-                            <p>Add up to 5 tags to descibe what your question is about</p>
+                            <h4>{t('askQuestion.tags')}</h4>
+                            <p>{t('askQuestion.addtags')}</p>
                             <input type="text" id='ask-ques-tags' onChange={(e) => {
                                 setquestiontags(e.target.value.split(" "));
                             }}
-                                placeholder='e.g. (xml typescript wordpress'
+                                placeholder={t('askQuestion.placeholdersecond')}
                             />
                         </label>
                     </div>
                     <input type="submit"
-                        value="Review your question"
+                        value={t('askQuestion.reviewButton')}
                         className='review-btn' />
                 </form>
             </div>

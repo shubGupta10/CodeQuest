@@ -9,6 +9,8 @@ const VerifyOtpPage = () => {
     const location = useLocation();
     const navigate = useNavigate();
     const { i18n } = useTranslation();
+    const [isLoading, setIsLoading] = useState(false);
+    const {t} = useTranslation();
 
     const phoneNumber = location.state?.phoneNumber;
     const langCode = location.state?.langCode;
@@ -23,6 +25,7 @@ const VerifyOtpPage = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         setError('');
+        setIsLoading(true);
 
         try {
             const response = await fetch('http://localhost:5000/user/verifying-otp', {
@@ -40,10 +43,12 @@ const VerifyOtpPage = () => {
             }
 
             i18n.changeLanguage(langCode);
+            alert("Language Changed.")
             navigate('/');
         } catch (err) {
             setError(err.message || 'Invalid OTP. Please try again.');
             console.error(err);
+            setIsLoading(false);
         }
     };
 
@@ -54,17 +59,17 @@ const VerifyOtpPage = () => {
     return (
         <div className="verifyOtpPage sendOtpPage">
             <div className="container">
-                <h2>Verify OTP to Change Language</h2>
+                <h2>{t('verifyotppage.h2')}</h2>
                 <form onSubmit={handleSubmit}>
                     <input
                         type="text"
                         value={otp}
                         onChange={(e) => setOtp(e.target.value)}
-                        placeholder="Enter OTP"
+                        placeholder={t('verifyotppage.placeholder')}
                         required
                         className="inputField"
                     />
-                    <button type="submit" className="submitButton">Verify OTP</button>
+                    <button type="submit" className="submitButton">{isLoading ? <> {t('verifyotppage.verifyingh2')} </> : <> {t('verifyotppage.verifyotpbutton')} </>}</button>
                 </form>
                 {error && <p className="error">{error}</p>}
             </div>

@@ -96,6 +96,37 @@
         "css": "CSS 是一种表示样式表语言，用于描述 HTML、XML 文档和 SVG 元素的外观和格式，包括颜色、布局、字体和动画。",
         "reactjs": "React 是一个用于构建用户界面的 JavaScript 库。它使用声明式、基于组件的范式，旨在既高效又灵活。",
         "nodejs": "Node.js 是一个基于事件的非阻塞异步 I/O 运行时，使用 Google 的 V8 JavaScript 引擎和 libuv 库。"
-    }
+    },
+
+    "askQuestion": {
+    "headh1": "提一个公共问题",
+    "QuestionTitle": "标题",
+    "questionPtag": "具体一点，想象一下你在向另一个人提问",
+    "askQuesBody": "正文",
+    "placeholder": "例如，有没有R函数可以找到向量中某个元素的索引？",
+    "askQuesBodyPtag": "包含回答你的问题所需的所有信息",
+    "tags": "标签",
+    "addtags": "添加最多5个标签来描述你的问题",
+    "reviewButton": "查看你的问题",
+    "placeholdersecond": "例如，（xml typescript wordpress"
+},
+
+
+"sendotppage": {
+    "h2": "发送OTP以更改语言",
+    "placeholder": "输入电话号码",
+    "sendotpbutton": "发送OTP",
+    "sendingh2": "发送中...."
+},
+
+"verifyotppage": {
+    "h2": "验证OTP以更改语言",
+    "placeholder": "输入OTP",
+    "verifyotpbutton": "验证OTP",
+    "verifyingh2": "验证中...."
+}
+
+
+
   }
   

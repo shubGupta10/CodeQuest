@@ -96,6 +96,37 @@
       "css": "CSS é uma linguagem de folhas de estilo de representação usada para descrever a aparência e formatação de documentos HTML, XML e elementos SVG, incluindo cores, layout, fontes e animações.",
       "reactjs": "React é uma biblioteca JavaScript para construir interfaces de usuário. Ele utiliza um paradigma declarativo baseado em componentes e visa ser eficiente e flexível.",
       "nodejs": "Node.js é um ambiente de execução de I/O assíncrono, não bloqueante, baseado em eventos, que utiliza o motor de JavaScript V8 do Google e a biblioteca libuv."
-  }
+  },
+
+  "askQuestion": {
+    "headh1": "Faça uma pergunta pública",
+    "QuestionTitle": "Título",
+    "questionPtag": "Seja específico e imagine que você está fazendo uma pergunta para outra pessoa",
+    "askQuesBody": "Corpo",
+    "placeholder": "por exemplo, Existe uma função R para encontrar o índice de um elemento em um vetor?",
+    "askQuesBodyPtag": "Inclua todas as informações que alguém precisaria para responder à sua pergunta",
+    "tags": "Tags",
+    "addtags": "Adicione até 5 tags para descrever sobre o que é sua pergunta",
+    "reviewButton": "Revise sua pergunta",
+    "placeholdersecond": "por exemplo, (xml typescript wordpress"
+},
+
+"sendotppage": {
+    "h2": "Enviar OTP para mudar o idioma",
+    "placeholder": "Digite o número de telefone",
+    "sendotpbutton": "Enviar OTP",
+    "sendingh2": "Enviando...."
+},
+
+
+"verifyotppage": {
+    "h2": "Verificar OTP para mudar o idioma",
+    "placeholder": "Digite OTP",
+    "verifyotpbutton": "Verificar OTP",
+    "verifyingh2": "Verificando...."
+}
+
+
+
   }
   
