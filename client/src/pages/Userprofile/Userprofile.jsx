@@ -18,7 +18,6 @@ const Userprofile = ({ slidein }) => {
   const users = useSelector((state)=>state.usersreducer)
   const currentprofile = users.filter((user) => user._id === id)[0]
   const currentuser = useSelector((state)=>state.currentuserreducer)
-  // console.log(currentuser._id)
   return (
     <div className="home-container-1">
       <Leftsidebar slidein={slidein} />
@@ -30,7 +29,7 @@ const Userprofile = ({ slidein }) => {
               <div className="user-name">
                 <h1>{currentprofile?.name}</h1>
                 <p>
-                  <FontAwesomeIcon icon={faBirthdayCake} /> Joined{" "} {moment(currentprofile?.joinedon).fromNow()}
+                  <FontAwesomeIcon icon={faBirthdayCake} /> {t('userprofilepage.joinedtext')}{" "} {moment(currentprofile?.joinedon).fromNow()}
                 </p>
               </div>
             </div>
