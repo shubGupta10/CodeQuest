@@ -32,10 +32,11 @@ const LanguageSwitcher = () => {
         }
     };
 
+
     return (
         <div className="languageSwitcher">
             <button onClick={toggleDropdown} className="globeButton">
-                <FaGlobe />
+                <FaGlobe  />
             </button>
             {isOpen && (
                 <ul className="languageDropdown">

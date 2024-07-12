@@ -53,11 +53,12 @@ function Navbar({ handleslidein }) {
                     <Link to="/" className="nav-item nav-btn res-nav">
                         {t('navbar.forteamtext')}
                     </Link>
-                    <LanguageSwitcher/>
+                    
                     <form><input type="text" placeholder='Search...' />
                         <img src={search} alt="search" width='18' className='search-icon' />
                     </form>
                 </div>
+                <LanguageSwitcher  />
 
                 <div className="navbar-2">
                     {User === null ? (
@@ -71,7 +72,7 @@ function Navbar({ handleslidein }) {
                                 {User.result.name.charAt(0).toUpperCase()}
                                 </Link>
                             </Avatar>
-                            <button className="nav-tem nav-links" style={{marginLeft :'5px'}} onClick={handlelogout}>{t('navbar.logout')}</button>
+                            <button className="nav-tem nav-links" style={{marginLeft :'7px'}} onClick={handlelogout}>{t('navbar.logout')}</button>
                         </>
                     )}
                 </div>
