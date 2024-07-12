@@ -138,7 +138,20 @@
  "userprofilepage": {
     "joinedtext": "加入",
     "editprofilebutton": "编辑资料"
+},
+
+"editprofilePage": {
+    "editprofileTitle": "编辑您的个人资料",
+    "publicInfo": "公开信息",
+    "name": "显示名称",
+    "aboutme": "关于我",
+    "watchedtgs": "观看的标签",
+    "addtagstext": "添加用 1 个空格分隔的标签",
+    "savebutton": "保存资料",
+    "cancelbutton": "取消"
 }
+
+
 
 
 

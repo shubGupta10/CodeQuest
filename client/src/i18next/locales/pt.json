@@ -138,10 +138,18 @@
  "userprofilepage": {
     "joinedtext": "Entrou",
     "editprofilebutton": "Editar perfil"
+},
+
+"editprofilePage": {
+    "editprofileTitle": "Edite seu perfil",
+    "publicInfo": "Informações públicas",
+    "name": "Nome de exibição",
+    "aboutme": "Sobre mim",
+    "watchedtgs": "Etiquetas observadas",
+    "addtagstext": "Adicionar etiquetas separadas por 1 espaço",
+    "savebutton": "Salvar perfil",
+    "cancelbutton": "Cancelar"
 }
-
-
-
 
 
   }

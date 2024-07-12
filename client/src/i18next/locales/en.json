@@ -150,6 +150,17 @@
   "userprofilepage": {
     "joinedtext": "Joined",
     "editprofilebutton": "Edit Profile"
-}
+},
+
+ "editprofilePage": {
+    "editprofileTitle": "Edit Your Profile",
+    "publicInfo": "Public Information",
+    "name": "Display Name",
+    "aboutme": "About Me",
+    "watchedtgs": "Watched tags",
+    "addtagstext": "Add tags seperated by 1 space",
+    "savebutton": "Save profile",
+    "cancelbutton": "Cancel"
+ }
 
 }

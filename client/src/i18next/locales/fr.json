@@ -135,7 +135,21 @@
  "userprofilepage": {
     "joinedtext": "Rejoint",
     "editprofilebutton": "Éditer le profil"
+},
+
+
+"editprofilePage": {
+    "editprofileTitle": "Modifier votre profil",
+    "publicInfo": "Informations publiques",
+    "name": "Nom d'affichage",
+    "aboutme": "À propos de moi",
+    "watchedtgs": "Étiquettes regardées",
+    "addtagstext": "Ajouter des étiquettes séparées par 1 espace",
+    "savebutton": "Enregistrer le profil",
+    "cancelbutton": "Annuler"
 }
+
+
 
 
 

@@ -136,7 +136,20 @@
  "userprofilepage": {
     "joinedtext": "Se unió",
     "editprofilebutton": "Editar perfil"
+},
+
+"editprofilePage": {
+    "editprofileTitle": "Edita tu perfil",
+    "publicInfo": "Información pública",
+    "name": "Nombre para mostrar",
+    "aboutme": "Sobre mí",
+    "watchedtgs": "Etiquetas vistas",
+    "addtagstext": "Añadir etiquetas separadas por 1 espacio",
+    "savebutton": "Guardar perfil",
+    "cancelbutton": "Cancelar"
 }
+
+
 
 
   }

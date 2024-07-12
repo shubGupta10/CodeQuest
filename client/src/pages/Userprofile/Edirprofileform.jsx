@@ -2,10 +2,14 @@ import React, { useState } from 'react'
 import { useDispatch } from 'react-redux'
 import { updateprofile } from '../../action/users'
 import './Userprofile.css'
+import {useTranslation} from 'react-i18next'
+
 const Edirprofileform = ({ currentuser, setswitch }) => {
   const [name, setname] = useState(currentuser?.result?.name)
   const [about, setabout] = useState(currentuser?.result?.about)
   const [tags, settags] = useState([])
+  const {t} = useTranslation();
+
   const dispatch=useDispatch()
 
   const handlesubmit = (e) => {
@@ -19,20 +23,20 @@ const Edirprofileform = ({ currentuser, setswitch }) => {
   }
   return (
     <div>
-      <h1 className="edit-profile-title">Edit Your Profile</h1>
-      <h2 className='edit-profile-title-2'>Public Information</h2>
+      <h1 className="edit-profile-title">{t('editprofilePage.editprofileTitle')}</h1>
+      <h2 className='edit-profile-title-2'>{t('editprofilePage.publicInfo')}</h2>
       <form className="edit-profile-form" onSubmit={handlesubmit}>
         <label htmlFor="name">
-          <h3>Display name</h3>
+          <h3>{t('editprofilePage.name')}</h3>
           <input type="text" value={name} onChange={(e) => setname(e.target.value)} />
         </label>
         <label htmlFor="about">
-          <h3>About me</h3>
+          <h3>{t('editprofilePage.aboutme')}</h3>
           <textarea name="" id="about" cols="30" rows="10" value={about} onChange={(e) => setabout(e.target.value)}></textarea>
         </label>
         <label htmlFor="tags">
-          <h3>Watched tags</h3>
-          <p>Add tags separated by 1 space</p>
+          <h3>{t('editprofilePage.watchedtgs')}</h3>
+          <p>{t('editprofilePage.addtagstext')}</p>
           <input
             type="text"
             id="tags"
@@ -40,8 +44,8 @@ const Edirprofileform = ({ currentuser, setswitch }) => {
           />
         </label>
         <br />
-        <input type="submit" value="save profile" className='user-submit-btn' />
-        <button type='button' className='user-cancel-btn' onClick={() => setswitch(false)}>Cancel</button>
+        <input type="submit" value={t('editprofilePage.savebutton')} className='user-submit-btn' />
+        <button type='button' className='user-cancel-btn' onClick={() => setswitch(false)}>{t('editprofilePage.cancelbutton')}</button>
       </form>
     </div>
   )

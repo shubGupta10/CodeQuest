@@ -134,7 +134,21 @@
  "userprofilepage": {
     "joinedtext": "शामिल हुए",
     "editprofilebutton": "प्रोफ़ाइल संपादित करें"
+},
+
+
+ "editprofilePage": {
+    "editprofileTitle": "अपनी प्रोफ़ाइल संपादित करें",
+    "publicInfo": "सार्वजनिक जानकारी",
+    "name": "प्रदर्शित नाम",
+    "aboutme": "मेरे बारे में",
+    "watchedtgs": "देखी गई टैग्स",
+    "addtagstext": "1 स्पेस से अलग किए गए टैग जोड़ें",
+    "savebutton": "प्रोफ़ाइल सहेजें",
+    "cancelbutton": "रद्द करें"
 }
+
+
 
 
   }
