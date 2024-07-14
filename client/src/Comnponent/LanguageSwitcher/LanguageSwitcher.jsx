@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { FaGlobe } from 'react-icons/fa';
 import { useNavigate } from "react-router-dom";
@@ -17,6 +17,21 @@ const LanguageSwitcher = () => {
         { code: 'pt', name: 'Portuguese' },
         { code: 'zh', name: 'Chinese' }
     ];
+
+    // const currentLanguage = localStorage.getItem('i18nextLng');
+
+
+    // useEffect(() => {
+    //     if(currentLanguage === "fr"){
+    //         document.body.style.backgroundColor = 'yellow';
+    //     }else if(currentLanguage === "hi"){
+    //         document.body.style.backgroundColor = 'blue';
+    //     }else if(currentLanguage === "zh"){
+    //         document.body.style.backgroundColor = 'green';
+    //     }else{
+    //         document.body.style.backgroundColor = 'white';
+    //     }
+    // },[currentLanguage]);
 
     const toggleDropdown = () => {
         setIsOpen(!isOpen);
