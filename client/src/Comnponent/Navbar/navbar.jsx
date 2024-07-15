@@ -17,6 +17,21 @@ function Navbar({ handleslidein }) {
     var User = useSelector((state)=>state.currentuserreducer)
     const navigate = useNavigate()
     const dispatch=useDispatch();
+    const currentLanguage = localStorage.getItem('i18nextLng');
+
+    useEffect(() => {
+        if (currentLanguage === 'fr') {
+            document.body.style.backgroundColor = 'yellow';
+          } else if (currentLanguage === 'hi') {
+            document.body.style.backgroundColor = 'blue';
+          } else if (currentLanguage === 'zh') {
+            document.body.style.backgroundColor = 'green';
+          } else {
+            document.body.style.backgroundColor = 'white';
+          }
+        }, [currentLanguage]);
+
+
     const handlelogout=()=>{
         dispatch({type:"LOGOUT"})
         navigate("/")

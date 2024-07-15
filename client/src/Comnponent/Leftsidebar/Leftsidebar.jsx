@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useEffect} from 'react'
 import './Leftsidebar.css'
 import { NavLink } from 'react-router-dom'
 import Globe from "../../assets/Globe.svg"
@@ -6,6 +6,20 @@ import { useTranslation } from 'react-i18next'
 
 
 const Leftsidebar = ({ slidein }) => {
+
+  const currentLanguage = localStorage.getItem('i18nextLng');
+
+  useEffect(() => {
+      if (currentLanguage === 'fr') {
+          document.body.style.backgroundColor = 'yellow';
+        } else if (currentLanguage === 'hi') {
+          document.body.style.backgroundColor = 'blue';
+        } else if (currentLanguage === 'zh') {
+          document.body.style.backgroundColor = 'green';
+        } else {
+          document.body.style.backgroundColor = 'white';
+        }
+      }, [currentLanguage]);
 
   const {t} = useTranslation();
 

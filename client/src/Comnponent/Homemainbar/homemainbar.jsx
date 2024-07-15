@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import './Homemainbar.css';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
@@ -11,6 +11,20 @@ function Homemainbar() {
   const location = useLocation();
   const navigate = useNavigate();
   const questionlist = useSelector((state) => state.questionreducer);
+
+  const currentLanguage = localStorage.getItem('i18nextLng');
+
+  useEffect(() => {
+      if (currentLanguage === 'fr') {
+          document.body.style.backgroundColor = 'yellow';
+        } else if (currentLanguage === 'hi') {
+          document.body.style.backgroundColor = 'blue';
+        } else if (currentLanguage === 'zh') {
+          document.body.style.backgroundColor = 'green';
+        } else {
+          document.body.style.backgroundColor = 'white';
+        }
+      }, [currentLanguage]);
   
   const checkauth = () => {
     if (user === null) {

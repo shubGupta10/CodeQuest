@@ -34,7 +34,7 @@
     width: 100%;
     display: flex;
     align-items: center;
-    background-color: #fdf7e2;
+    /* background-color: #fdf7e2; */
     border-bottom: solid 1px #edeff0;
   }
   
@@ -55,7 +55,7 @@
   
   .question-title-link {
     text-decoration: none;
-    color: #037ecb;
+    color: black;
     transition: 0.3s;
   }
   

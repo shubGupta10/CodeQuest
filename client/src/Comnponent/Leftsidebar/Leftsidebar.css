@@ -1,7 +1,7 @@
 .left-sidebar {
     width: 164px;
     box-shadow: 1px 1px 0 rgba(0, 0, 0, 0.2);
-    background-color: white;
+    /* background-color: white; */
     height: auto;
     min-height: 100vh;
     transition: box-shadow ease-in-out 0.1s, transform ease-in-out 0.1s;
@@ -48,8 +48,8 @@
   
   .active {
     font-weight: bolder;
-    color: black;
-    background-color: rgb(225, 225, 225);
+    color: orange;
+    background-color: #0086d8;
     border-right: solid 3px #ef8236;
   }
   

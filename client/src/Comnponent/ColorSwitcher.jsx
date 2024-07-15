@@ -1,31 +1,21 @@
-import React, { useEffect, useState } from 'react';
-import { useTranslation } from 'react-i18next';
+import React, { useEffect } from 'react';
 
 const ColorSwitcher = ({ children }) => {
-  const { i18n } = useTranslation();
-  const [bgColor, setBgColor] = useState('white');
+  const currentLanguage = localStorage.getItem('i18nextLng');
 
   useEffect(() => {
-    const currentLanguage = i18n.language;
-    let color = 'white';
-
     if (currentLanguage === 'fr') {
-      color = 'yellow';
+      document.body.style.backgroundColor = 'yellow';
     } else if (currentLanguage === 'hi') {
-      color = 'blue';
+      document.body.style.backgroundColor = 'blue';
     } else if (currentLanguage === 'zh') {
-      color = 'green';
+      document.body.style.backgroundColor = 'green';
+    } else {
+      document.body.style.backgroundColor = 'white';
     }
+  }, [currentLanguage]);
 
-    setBgColor(color);
-    document.documentElement.style.setProperty('--bg-color', color);
-  }, [i18n.language]);
-
-  return (
-    <div style={{ backgroundColor: bgColor, minHeight: '100vh' }}>
-      {children}
-    </div>
-  );
+  return <>{children}</>;
 };
 
 export default ColorSwitcher;
