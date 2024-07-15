@@ -25,6 +25,8 @@ const VerifyOtpPage = () => {
 
     const currentLanguage = localStorage.getItem("i18nextLng");
 
+    //used stack overflow help.
+    //used help of chatGpt to solve a error and issue.
     useEffect(() => {
         if (containerRef.current) {
             if (currentLanguage === "fr") {

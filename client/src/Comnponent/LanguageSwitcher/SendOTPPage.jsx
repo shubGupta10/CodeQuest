@@ -15,6 +15,7 @@ const SendOtpPage = () => {
 
     const currentLanguage = localStorage.getItem('i18nextLng');
 
+    //got little bit help of ChatGpt in the code.
     useEffect(() => {
         if (containerRef.current) {
             if (currentLanguage === 'fr') {
