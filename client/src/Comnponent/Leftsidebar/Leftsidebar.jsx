@@ -14,8 +14,10 @@ const Leftsidebar = ({ slidein }) => {
           document.body.style.backgroundColor = 'yellow';
         } else if (currentLanguage === 'hi') {
           document.body.style.backgroundColor = 'blue';
+          document.body.style.color = 'white'
         } else if (currentLanguage === 'zh') {
           document.body.style.backgroundColor = 'green';
+          document.body.style.color = 'white'
         } else {
           document.body.style.backgroundColor = 'white';
         }

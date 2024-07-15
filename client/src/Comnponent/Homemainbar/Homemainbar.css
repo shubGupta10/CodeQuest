@@ -55,12 +55,12 @@
   
   .question-title-link {
     text-decoration: none;
-    color: black;
     transition: 0.3s;
+    color: rgb(0, 0, 0);
   }
   
   .question-title-link:hover {
-    color: #009dff;
+    color: rgb(200, 189, 189);
   }
   
   .display-tags-time .display-tags {

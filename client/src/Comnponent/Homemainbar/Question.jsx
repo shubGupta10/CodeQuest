@@ -10,6 +10,22 @@ const Question = ({ question }) => {
   const { t, i18n } = useTranslation();
   const [translatedTitle, setTranslatedTitle] = useState(question.questiontitle);
 
+  const currentLanguage = localStorage.getItem('i18nextLng');
+
+  useEffect(() => {
+      if (currentLanguage === 'fr') {
+          document.body.style.backgroundColor = 'yellow';
+        } else if (currentLanguage === 'hi') {
+          document.body.style.backgroundColor = 'blue';
+          document.body.style.color = 'white'
+        } else if (currentLanguage === 'zh') {
+          document.body.style.backgroundColor = 'green';
+          document.body.style.color = 'white';
+        } else {
+          document.body.style.backgroundColor = 'white';
+        }
+      }, [currentLanguage]);
+
   const translateTitle = useCallback(async () => {
     const storedLang = localStorage.getItem('i18nextLng') || 'en';
     if (storedLang === 'en') {

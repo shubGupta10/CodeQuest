@@ -1,11 +1,11 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { useNavigate, Link } from "react-router-dom";
 import "./Auth.css";
 import icon from "../../assets/icon.png";
 import Aboutauth from "./Aboutauth";
 import { signup, login } from "../../action/auth";
-import { useTranslation } from 'react-i18next'; // Corrected import
+import { useTranslation } from 'react-i18next';
 
 const Auth = () => {
   const [issignup, setissignup] = useState(false);
@@ -13,7 +13,29 @@ const Auth = () => {
   const [email, setemail] = useState("");
   const [password, setpassword] = useState("");
   const [phoneNumber, setPhoneNumber] = useState("");
-  const { t } = useTranslation(); // Corrected hook
+  const { t } = useTranslation(); 
+
+  const currentLanguage = localStorage.getItem("i18nextLng");
+
+  useEffect(() => {
+    if (currentLanguage === "fr") {
+      document.querySelector('.auth-section ').style.backgroundColor = "yellow";
+      document.querySelector('.auth-container-2 form').style.backgroundColor = "yellow";
+      document.querySelector('.auth-container-2').style.color = "black";
+    } else if (currentLanguage === "en-US") {
+      document.body.style.backgroundColor = "white";
+      document.querySelector('.auth-container-2').style.color = "black";
+    } else if (currentLanguage === "hi") {
+      document.body.style.backgroundColor = "blue";
+      document.querySelector('.auth-container-2').style.color = "white";
+    } else if (currentLanguage === "zh") {
+      document.body.style.backgroundColor = "green";
+      document.querySelector('.auth-container-2').style.color = "white";
+    } else {
+      document.body.style.backgroundColor = "white";
+      document.querySelector('.auth-container-2').style.color = "black";
+    }
+  }, [currentLanguage]);
 
   const dispatch = useDispatch();
   const navigate = useNavigate();

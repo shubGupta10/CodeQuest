@@ -34,7 +34,8 @@
   
   .side-nav-links {
     text-decoration: none;
-    color: #3a3a3a;
+    /* color: #3a3a3a; */
+    color: white;
     display: flex;
     align-items: center;
     justify-content: flex-start;

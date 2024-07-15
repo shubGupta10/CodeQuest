@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import './SendOtpPage.css';
 import { useTranslation } from 'react-i18next';
@@ -10,10 +10,31 @@ const SendOtpPage = () => {
     const navigate = useNavigate();
     const langCode = location.state?.langCode;
     const [isLoading, setIsLoading] = useState(false);
-    const {t} = useTranslation();
-    
+    const { t } = useTranslation();
+    const containerRef = useRef(null);
 
-    // Taken little help of ChatGPT in issue and error fixes.
+    const currentLanguage = localStorage.getItem('i18nextLng');
+
+    useEffect(() => {
+        if (containerRef.current) {
+            if (currentLanguage === 'fr') {
+                containerRef.current.style.backgroundColor = 'yellow';
+                containerRef.current.style.color = 'black';
+            } else if (currentLanguage === 'en-US') {
+                containerRef.current.style.backgroundColor = 'white';
+                containerRef.current.style.color = 'black';
+            } else if (currentLanguage === 'hi') {
+                containerRef.current.style.backgroundColor = 'blue';
+                containerRef.current.style.color = 'white';
+            } else if (currentLanguage === 'zh') {
+                containerRef.current.style.backgroundColor = 'green';
+                containerRef.current.style.color = 'white';
+            } else {
+                containerRef.current.style.backgroundColor = 'white';
+            }
+        }
+    }, [currentLanguage]);
+
     const handleSubmit = async (e) => {
         e.preventDefault();
         setError('');
@@ -33,7 +54,7 @@ const SendOtpPage = () => {
             if (!response.ok) {
                 throw new Error(data.msg || 'Failed to send OTP');
             }
-            // Used help of ChatGPT and ClaudeAI to build intuition for the code.
+
             navigate('/verifying-otp', { state: { phoneNumber, langCode } });
         } catch (err) {
             setError(err.message || 'Failed to send OTP. Please try again.');
@@ -44,7 +65,7 @@ const SendOtpPage = () => {
 
     return (
         <div className="sendOtpPage">
-            <div className="container">
+            <div className="container" ref={containerRef}>
                 <h2>{t('sendotppage.h2')}</h2>
                 <form onSubmit={handleSubmit}>
                     <input

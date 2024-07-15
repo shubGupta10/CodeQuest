@@ -53,7 +53,8 @@
     font-size: small;
     font-weight: 500;
     text-decoration: none;
-    color: rgb(69, 69, 69);
+    /* color: rgb(69, 69, 69); */
+    color: white;
     transition: 0.2s;
   }
   

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import './SendOtpPage.css';
@@ -10,7 +10,8 @@ const VerifyOtpPage = () => {
     const navigate = useNavigate();
     const { i18n } = useTranslation();
     const [isLoading, setIsLoading] = useState(false);
-    const {t} = useTranslation();
+    const { t } = useTranslation();
+    const containerRef = useRef(null);
 
     const phoneNumber = location.state?.phoneNumber;
     const langCode = location.state?.langCode;
@@ -21,6 +22,29 @@ const VerifyOtpPage = () => {
             navigate('/');
         }
     }, [langCode, i18n, navigate]);
+
+    const currentLanguage = localStorage.getItem("i18nextLng");
+
+    useEffect(() => {
+        if (containerRef.current) {
+            if (currentLanguage === "fr") {
+                containerRef.current.style.backgroundColor = "yellow";
+                containerRef.current.style.color = "black";
+            } else if (currentLanguage === "en-US") {
+                containerRef.current.style.backgroundColor = "white";
+                containerRef.current.style.color = "black";
+            } else if (currentLanguage === "hi") {
+                containerRef.current.style.backgroundColor = "blue";
+                containerRef.current.style.color = "white";
+            } else if (currentLanguage === "zh") {
+                containerRef.current.style.backgroundColor = "green";
+                containerRef.current.style.color = "white";
+            } else {
+                containerRef.current.style.backgroundColor = "white";
+                containerRef.current.style.color = "black";
+            }
+        }
+    }, [currentLanguage]);
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -43,7 +67,7 @@ const VerifyOtpPage = () => {
             }
 
             i18n.changeLanguage(langCode);
-            alert("Language Changed.")
+            alert("Language Changed.");
             navigate('/');
         } catch (err) {
             setError(err.message || 'Invalid OTP. Please try again.');
@@ -58,7 +82,7 @@ const VerifyOtpPage = () => {
 
     return (
         <div className="verifyOtpPage sendOtpPage">
-            <div className="container">
+            <div className="container" ref={containerRef}>
                 <h2>{t('verifyotppage.h2')}</h2>
                 <form onSubmit={handleSubmit}>
                     <input

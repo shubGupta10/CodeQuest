@@ -1,99 +1,117 @@
-import React ,{useEffect} from 'react'
-import { Link, useNavigate } from 'react-router-dom'
-import { useSelector, useDispatch } from "react-redux"
-import bars from '../../assets/bars-solid.svg'
-import logo from '../../assets/logo.png';
-import search from '../../assets/search-solid.svg'
-import Avatar from '../Avatar/Avatar';
-import './navbar.css';
-import {setcurrentuser} from '../../action/currentuser'
-import {jwtDecode} from "jwt-decode"
-import LanguageSwitcher from '../LanguageSwitcher/LanguageSwitcher';
-import { useTranslation } from 'react-i18next';
-
+import React, { useEffect } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import { useSelector, useDispatch } from "react-redux";
+import bars from "../../assets/bars-solid.svg";
+import logo from "../../assets/logo.png";
+import search from "../../assets/search-solid.svg";
+import Avatar from "../Avatar/Avatar";
+import "./navbar.css";
+import { setcurrentuser } from "../../action/currentuser";
+import { jwtDecode } from "jwt-decode";
+import LanguageSwitcher from "../LanguageSwitcher/LanguageSwitcher";
+import { useTranslation } from "react-i18next";
 
 function Navbar({ handleslidein }) {
-    const {t} = useTranslation();
-    var User = useSelector((state)=>state.currentuserreducer)
-    const navigate = useNavigate()
-    const dispatch=useDispatch();
-    const currentLanguage = localStorage.getItem('i18nextLng');
+  const { t } = useTranslation();
+  var User = useSelector((state) => state.currentuserreducer);
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
+  const currentLanguage = localStorage.getItem("i18nextLng");
 
-    useEffect(() => {
-        if (currentLanguage === 'fr') {
-            document.body.style.backgroundColor = 'yellow';
-          } else if (currentLanguage === 'hi') {
-            document.body.style.backgroundColor = 'blue';
-          } else if (currentLanguage === 'zh') {
-            document.body.style.backgroundColor = 'green';
-          } else {
-            document.body.style.backgroundColor = 'white';
-          }
-        }, [currentLanguage]);
-
-
-    const handlelogout=()=>{
-        dispatch({type:"LOGOUT"})
-        navigate("/")
-        localStorage.clear()
-        dispatch(setcurrentuser(null))
+  useEffect(() => {
+    if (currentLanguage === "fr") {
+      document.body.style.backgroundColor = "yellow";
+    } else if (currentLanguage === "en-US") {
+      document.body.style.color = "black";
+    } else if (currentLanguage === "hi") {
+      document.body.style.backgroundColor = "blue";
+      document.body.style.color = "white";
+    } else if (currentLanguage === "zh") {
+      document.body.style.backgroundColor = "green";
+      document.body.style.color = "white";
+    } else {
+      document.body.style.backgroundColor = "white";
     }
+  }, [currentLanguage]);
 
-    useEffect(()=>{
-        const token =User?.token;
-        if(token){
-            const decodedtoken=jwtDecode(token);
-            if(decodedtoken.exp * 1000 < new Date().getTime()){
-                handlelogout();
-            }
-        }
-        dispatch(setcurrentuser(JSON.parse(localStorage.getItem("Profile"))))
-    },[User?.token,dispatch]);
-    return (
-        <nav className="main-nav">
-            <div className="navbar">
-                <button className="slide-in-icon" onClick={() => handleslidein()}>
-                    <img src={bars} alt="bars" width='15' />
-                </button>
-                <div className="navbar-1">
-                    <Link to='/' className='nav-item nav-logo'>
-                        <img src={logo} alt="logo" />
-                    </Link>
-                    <Link to="/" className="nav-item nav-btn res-nav">
-                        {t('navbar.abouttext')}
-                    </Link>
-                    <Link to="/" className="nav-item nav-btn res-nav">
-                        {t('navbar.producttext')}
-                    </Link>
-                    <Link to="/" className="nav-item nav-btn res-nav">
-                        {t('navbar.forteamtext')}
-                    </Link>
-                    
-                    <form><input type="text" placeholder='Search...' />
-                        <img src={search} alt="search" width='18' className='search-icon' />
-                    </form>
-                </div>
-                <LanguageSwitcher  />
+  const handlelogout = () => {
+    dispatch({ type: "LOGOUT" });
+    navigate("/");
+    localStorage.clear();
+    dispatch(setcurrentuser(null));
+  };
 
-                <div className="navbar-2">
-                    {User === null ? (
-                        <Link to='/Auth' className='nav-item nav-links'>
-                            {t('navbar.login')}
-                        </Link>
-                    ) : (
-                        <>
-                            <Avatar backgroundColor='#009dff' px='15px' py='7px' borderRadius='50%' color="white" >
-                                <Link to={`/Users/${User?.result?._id}`} style={{ color: "white", textDecoration: "none" }}>
-                                {User.result.name.charAt(0).toUpperCase()}
-                                </Link>
-                            </Avatar>
-                            <button className="nav-tem nav-links" style={{marginLeft :'7px'}} onClick={handlelogout}>{t('navbar.logout')}</button>
-                        </>
-                    )}
-                </div>
-            </div>
-        </nav>
-    )
+  useEffect(() => {
+    const token = User?.token;
+    if (token) {
+      const decodedtoken = jwtDecode(token);
+      if (decodedtoken.exp * 1000 < new Date().getTime()) {
+        handlelogout();
+      }
+    }
+    dispatch(setcurrentuser(JSON.parse(localStorage.getItem("Profile"))));
+  }, [User?.token, dispatch]);
+  return (
+    <nav className="main-nav">
+      <div className="navbar">
+        <button className="slide-in-icon" onClick={() => handleslidein()}>
+          <img src={bars} alt="bars" width="15" />
+        </button>
+        <div className="navbar-1">
+          <Link to="/" className="nav-item nav-logo">
+            <img src={logo} alt="logo" />
+          </Link>
+          <Link to="/" className="nav-item nav-btn res-nav">
+            {t("navbar.abouttext")}
+          </Link>
+          <Link to="/" className="nav-item nav-btn res-nav">
+            {t("navbar.producttext")}
+          </Link>
+          <Link to="/" className="nav-item nav-btn res-nav">
+            {t("navbar.forteamtext")}
+          </Link>
+
+          <form>
+            <input type="text" placeholder="Search..." />
+            <img src={search} alt="search" width="18" className="search-icon" />
+          </form>
+        </div>
+        <LanguageSwitcher />
+
+        <div className="navbar-2">
+          {User === null ? (
+            <Link to="/Auth" className="nav-item nav-links">
+              {t("navbar.login")}
+            </Link>
+          ) : (
+            <>
+              <Avatar
+                backgroundColor="#009dff"
+                px="15px"
+                py="7px"
+                borderRadius="50%"
+                color="white"
+              >
+                <Link
+                  to={`/Users/${User?.result?._id}`}
+                  style={{ color: "white", textDecoration: "none" }}
+                >
+                  {User.result.name.charAt(0).toUpperCase()}
+                </Link>
+              </Avatar>
+              <button
+                className="nav-tem nav-links"
+                style={{ marginLeft: "7px" }}
+                onClick={handlelogout}
+              >
+                {t("navbar.logout")}
+              </button>
+            </>
+          )}
+        </div>
+      </div>
+    </nav>
+  );
 }
 
-export default Navbar
+export default Navbar;
