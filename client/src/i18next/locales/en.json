@@ -161,6 +161,24 @@
     "addtagstext": "Add tags seperated by 1 space",
     "savebutton": "Save profile",
     "cancelbutton": "Cancel"
+ },
+
+ "sendOTP": {
+    "EnterNumber": "Enter Phone Number for OTP",
+ "countryCode": "Please enter your phone number including the country code (e.g., +91 for India)",
+ "numberPlaceholder": "E.g., +911287377689",
+ "sendOtp": "Send OTP"
+ },
+
+ "verifyOTP": {
+    "VerifyOtph1": "Verify OTP and Change Password",
+    "numberPlaceholder": "Please your phone number again!",
+    "enterOTp": "Enter the OTP",
+    "verifyOtpbutton": "Verify OTP",
+    "newpass": "Enter new password",
+    "changePassh2": "Change Password",
+    "changepassbutton": "Change Password"
  }
+ 
 
 }

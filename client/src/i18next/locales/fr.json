@@ -147,10 +147,24 @@
     "addtagstext": "Ajouter des étiquettes séparées par 1 espace",
     "savebutton": "Enregistrer le profil",
     "cancelbutton": "Annuler"
+},
+
+
+"sendOTP": {
+  "EnterNumber": "Entrez le numéro de téléphone pour OTP",
+  "countryCode": "Veuillez entrer votre numéro de téléphone incluant le code pays (par exemple, +91 pour l'Inde)",
+  "numberPlaceholder": "Par exemple, +911287377689",
+  "sendOtp": "Envoyer OTP"
+},
+
+ "verifyOTP": {
+  "VerifyOtph1": "Vérifier OTP et Changer le Mot de Passe",
+  "numberPlaceholder": "Veuillez entrer à nouveau votre numéro de téléphone!",
+  "enterOTp": "Entrez l'OTP",
+  "verifyOtpbutton": "Vérifier OTP",
+  "changePassh2": "Changer le Mot de Passe",
+  "changepassbutton": "Changer le Mot de Passe"
 }
-
-
-
 
 
 

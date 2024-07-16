@@ -149,11 +149,23 @@
     "addtagstext": "添加用 1 个空格分隔的标签",
     "savebutton": "保存资料",
     "cancelbutton": "取消"
+},
+
+ "sendOTP": {
+  "EnterNumber": "输入OTP的电话号码",
+  "countryCode": "请输入包括国家代码在内的电话号码（例如，中国+91）",
+  "numberPlaceholder": "例如, +911287377689",
+  "sendOtp": "发送OTP"
+},
+
+ "verifyOTP": {
+  "VerifyOtph1": "验证OTP并更改密码",
+  "numberPlaceholder": "请再次输入您的电话号码!",
+  "enterOTp": "输入OTP",
+  "verifyOtpbutton": "验证OTP",
+  "changePassh2": "更改密码",
+  "changepassbutton": "更改密码"
 }
-
-
-
-
 
 
 

@@ -146,7 +146,26 @@
     "addtagstext": "1 स्पेस से अलग किए गए टैग जोड़ें",
     "savebutton": "प्रोफ़ाइल सहेजें",
     "cancelbutton": "रद्द करें"
+},
+
+ "sendOTP": {
+  "EnterNumber": "OTP के लिए फोन नंबर दर्ज करें",
+  "countryCode": "कृपया अपने फोन नंबर में देश कोड जोड़कर दर्ज करें (जैसे, भारत के लिए +91)",
+  "numberPlaceholder": "उदा., +911287377689",
+  "sendOtp": "OTP भेजें"
+},
+
+
+ "verifyOTP": {
+  "VerifyOtph1": "OTP सत्यापित करें और पासवर्ड बदलें",
+  "numberPlaceholder": "कृपया अपना फोन नंबर फिर से दर्ज करें!",
+  "enterOTp": "OTP दर्ज करें",
+  "verifyOtpbutton": "OTP सत्यापित करें",
+  "changePassh2": "पासवर्ड बदलें",
+  "changepassbutton": "पासवर्ड बदलें"
 }
+
+
 
 
 

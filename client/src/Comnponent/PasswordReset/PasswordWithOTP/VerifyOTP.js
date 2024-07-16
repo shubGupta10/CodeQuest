@@ -1,6 +1,7 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import './VerifyOTP.css';
 import axios from 'axios';
+import { useTranslation } from 'react-i18next';
 
 const VerifyOTP = () => {
   const [phoneNumber, setPhoneNumber] = useState('');
@@ -9,6 +10,29 @@ const VerifyOTP = () => {
   const [message, setMessage] = useState('');
   const [messageColor, setMessageColor] = useState('');
   const [isVerified, setIsVerified] = useState(false);
+  const {t}  = useTranslation();
+
+
+  const currentLanguage = localStorage.getItem('i18nextLng');
+
+  useEffect(() => {
+    const containers = document.querySelectorAll('.container');
+    containers.forEach(container => {
+      if(currentLanguage === 'fr'){
+        container.style.backgroundColor = 'yellow';
+      } else if(currentLanguage === 'hi'){
+        container.style.backgroundColor = 'yellow';
+      } else if(currentLanguage === 'zh'){
+        container.style.backgroundColor = 'green';
+      } else{
+        container.style.backgroundColor = 'white';
+      }
+    })
+    
+  },[currentLanguage])
+ 
+
+
 
   const handlePhoneNumberChange = (e) => {
     setPhoneNumber(e.target.value);
@@ -70,36 +94,36 @@ const VerifyOTP = () => {
 
   return (
     <div className="container">
-      <h1 className="title">Verify OTP and Change Password</h1>
+      <h1 className="title">{t('verifyOTP.VerifyOtph1')}</h1>
       <input
         type="text"
         onChange={handlePhoneNumberChange}
         value={phoneNumber}
-        placeholder="Please your phone number again!"
+        placeholder={t('verifyOTP.numberPlaceholder')}
         className="input"
       />
       <input
         type="text"
         onChange={handleOTPChange}
         value={otp}
-        placeholder="Enter the OTP"
+        placeholder={t('verifyOTP.enterOTp')}
         className="input"
       />
       <button onClick={verifyOTPmessage} className="button">
-        Verify OTP
+        {t('verifyOTP.verifyOtpbutton')}
       </button>
       {isVerified && (
         <div>
-          <h2 className="subtitle">Change Password</h2>
+          <h2 className="subtitle">{t('verifyOTP.changePassh2')}</h2>
           <input
             type="password"
             onChange={handlePasswordChange}
             value={newPassword}
-            placeholder="Enter new password"
+            placeholder={t('verifyOTP.newpass')}
             className="input"
           />
           <button onClick={updatePassword} className="button">
-            Change Password
+            {t('verifyOTP.changepassbutton')}
           </button>
         </div>
       )}

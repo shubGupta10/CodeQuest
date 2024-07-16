@@ -1,13 +1,33 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './SendOTP.css';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
+import {useTranslation} from 'react-i18next';
 
 const SendOTP = () => {
   const [phoneNumber, setPhoneNumber] = useState('');
   const [message, setMessage] = useState('');
   const [messageColor, setMessageColor] = useState('');
   const navigate = useNavigate();
+  const {t} = useTranslation();
+
+  const currentLanguage = localStorage.getItem('i18nextLng');
+
+  useEffect(() => {
+    const containers = document.querySelectorAll('.container');
+    containers.forEach(container => {
+      if (currentLanguage === 'fr') {
+        container.style.backgroundColor = 'yellow';
+      } else if (currentLanguage === 'hi') {
+        container.style.backgroundColor = 'blue';
+      } else if (currentLanguage === 'zh') {
+        container.style.backgroundColor = 'green';
+      } else {
+        container.style.backgroundColor = 'white';
+      }
+    })
+  
+  }, [currentLanguage]);
 
   const handleChange = (event) => {
     setPhoneNumber(event.target.value);
@@ -31,17 +51,17 @@ const SendOTP = () => {
 
   return (
     <div className="container">
-      <h1 className="title">Enter Phone Number for OTP</h1>
-      <p className="subtitle">Please enter your phone number including the country code (e.g., +91 for India)</p>
+      <h1 className="title">{t('sendOTP.EnterNumber')}</h1>
+      <p className="subtitle">{t('sendOTP.countryCode')}</p>
       <input
         type="text"
-        placeholder="E.g., +911287377689"
+        placeholder={t('sendOTP.numberPlaceholder')}
         className="input"
         value={phoneNumber}
         onChange={handleChange}
       />
       <button onClick={clicktoSend} className="button">
-        Send OTP
+        {t('sendOTP.sendOtp')}
       </button>
       {message && <p className="message" style={{ color: messageColor }}>{message}</p>}
     </div>

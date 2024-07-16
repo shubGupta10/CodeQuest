@@ -147,7 +147,25 @@
     "addtagstext": "Añadir etiquetas separadas por 1 espacio",
     "savebutton": "Guardar perfil",
     "cancelbutton": "Cancelar"
+},
+
+"sendOTP": {
+  "EnterNumber": "Ingrese el número de teléfono para OTP",
+  "countryCode": "Por favor ingrese su número de teléfono incluyendo el código de país (ej., +91 para India)",
+  "numberPlaceholder": "Ej., +911287377689",
+  "sendOtp": "Enviar OTP"
+},
+
+ "verifyOTP": {
+  "VerifyOtph1": "Verificar OTP y Cambiar Contraseña",
+  "numberPlaceholder": "¡Por favor, ingrese su número de teléfono nuevamente!",
+  "enterOTp": "Ingrese el OTP",
+  "verifyOtpbutton": "Verificar OTP",
+  "changePassh2": "Cambiar Contraseña",
+  "changepassbutton": "Cambiar Contraseña"
 }
+
+
 
 
 
