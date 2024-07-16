@@ -19,19 +19,23 @@ function Navbar({ handleslidein }) {
   const currentLanguage = localStorage.getItem("i18nextLng");
 
   useEffect(() => {
-    if (currentLanguage === "fr") {
-      document.body.style.backgroundColor = "yellow";
-    } else if (currentLanguage === "en-US") {
-      document.body.style.color = "black";
-    } else if (currentLanguage === "hi") {
-      document.body.style.backgroundColor = "blue";
-      document.body.style.color = "white";
-    } else if (currentLanguage === "zh") {
-      document.body.style.backgroundColor = "green";
-      document.body.style.color = "white";
-    } else {
-      document.body.style.backgroundColor = "white";
-    }
+    const navItems = document.querySelectorAll('.nav-item');
+    navItems.forEach(navItem => {
+      if (currentLanguage === "fr") {
+        document.body.style.backgroundColor = "yellow";
+      } else if (currentLanguage === "en-US") {
+        document.body.style.color = "black";
+      } else if (currentLanguage === "hi") {
+        document.body.style.backgroundColor = "blue";
+        document.body.style.color = "white";
+      } else if (currentLanguage === "zh") {
+        document.body.style.backgroundColor = "green";
+        document.body.style.color = "white";
+        navItem.style.color = 'white'; 
+      } else {
+        document.body.style.backgroundColor = "white";
+      }
+    });
   }, [currentLanguage]);
 
   const handlelogout = () => {
