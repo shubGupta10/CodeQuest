@@ -28,7 +28,15 @@ const Leftsidebar = ({ slidein }) => {
 
   useEffect(() => {
     const publicText = document.querySelector('.public');
-    publicText.style.color = 'black'
+    if(currentLanguage === 'fr'){
+      publicText.style.color = 'black'
+    } else if(currentLanguage === 'hi'){
+      publicText.style.color = 'white';
+    } else if(currentLanguage === 'zh'){
+      publicText.style.color = 'black';
+    }else {
+      publicText.style.color = 'black';
+    }
   },[currentLanguage])
 
   const { t } = useTranslation();
