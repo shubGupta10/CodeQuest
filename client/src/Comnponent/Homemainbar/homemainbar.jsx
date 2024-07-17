@@ -30,6 +30,24 @@ function Homemainbar() {
           document.body.style.backgroundColor = 'white';
         }
       }, [currentLanguage]);
+
+
+
+
+      useEffect(() => {
+        const questions = document.querySelectorAll('.main-bar');
+        questions.forEach(questionslist => {
+          if(currentLanguage === 'fr'){
+            questionslist.style.color = 'black';
+          } else if(currentLanguage === 'hi'){
+            questionslist.style.color = 'white';
+          } else if(currentLanguage === 'zh'){
+            questionslist.style.color = 'white';
+          } else{
+            questionslist.style.color = 'black';
+          }
+        })
+      },[])
   
   const checkauth = () => {
     if (user === null) {
@@ -55,7 +73,7 @@ function Homemainbar() {
           <h1>{t('homemainbar.h1loading')}</h1>
         ) : (
           <>
-            <p>{questionlist.data.length} {t('homemainbar.questions')}</p>
+            <p className='questionTag'>{questionlist.data.length} {t('homemainbar.questions')}</p>
             {questionlist.data.length === 0 ? (
               <p>{t('homemainbar.noQuestions')}</p>
             ) : (

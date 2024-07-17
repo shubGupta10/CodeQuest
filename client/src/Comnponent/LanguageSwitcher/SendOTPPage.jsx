@@ -64,6 +64,24 @@ const SendOtpPage = () => {
         }
     };
 
+
+    useEffect (() => {
+        const sendotp = document.querySelectorAll('.sendOtpPage');
+        sendotp.forEach(sendotps => {
+            if (currentLanguage === 'fr') {
+                sendotps.style.color = 'black';
+              } else if (currentLanguage === 'en-US') {
+                sendotps.style.color = 'black';
+              } else if (currentLanguage === 'hi') {
+                sendotps.style.color = 'white';
+              } else if (currentLanguage === 'zh') {
+                sendotps.style.color = 'white';
+              } else {
+                sendotps.style.color = 'white';
+              }
+        })
+    },[currentLanguage])
+
     return (
         <div className="sendOtpPage">
             <div className="container" ref={containerRef}>

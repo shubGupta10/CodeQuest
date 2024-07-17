@@ -26,6 +26,11 @@ const Leftsidebar = ({ slidein }) => {
     });
   }, [currentLanguage]);
 
+  useEffect(() => {
+    const publicText = document.querySelector('.public');
+    publicText.style.color = 'black'
+  },[currentLanguage])
+
   const { t } = useTranslation();
 
   const slideinstyle = {
@@ -45,7 +50,7 @@ const Leftsidebar = ({ slidein }) => {
         </button>
         <div className="side-nav-div">
           <div>
-            <p>{t('leftsidebar.publictext')}</p>
+            <p className='public'>{t('leftsidebar.publictext')}</p>
           </div>
           <button className='nav-btnn'>
             <NavLink to='/Question' className='side-nav-links' activeclassname='active'>

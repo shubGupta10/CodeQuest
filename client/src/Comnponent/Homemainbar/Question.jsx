@@ -26,6 +26,22 @@ const Question = ({ question }) => {
         }
       }, [currentLanguage]);
 
+
+      useEffect(() => {
+        const questionContainer = document.querySelectorAll('.question-title-link');
+        questionContainer.forEach(questions => {
+          if (currentLanguage === 'fr') {
+            questions.style.backgroundColor = 'yellow';
+          } else if (currentLanguage === 'hi') {
+            questions.style.color = 'white'
+          } else if (currentLanguage === 'zh') {
+            questions.style.color = 'white';
+          } else {
+            document.body.style.backgroundColor = 'white';
+          }
+        })
+      },[])
+
   const translateTitle = useCallback(async () => {
     const storedLang = localStorage.getItem('i18nextLng') || 'en';
     if (storedLang === 'en') {

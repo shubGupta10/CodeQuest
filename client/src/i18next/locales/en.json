@@ -178,6 +178,10 @@
     "newpass": "Enter new password",
     "changePassh2": "Change Password",
     "changepassbutton": "Change Password"
+ },
+
+ "widgeting": {
+    "watchTg": "Watched tags"
  }
  
 

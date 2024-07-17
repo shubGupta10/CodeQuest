@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import './Askquestion.css'
 import { useNavigate } from 'react-router-dom'
 import { useSelector, useDispatch } from "react-redux"
@@ -13,6 +13,48 @@ const Askquestion = () => {
     const [questionbody, setquestionbody] = useState("");
     const [questiontag, setquestiontags] = useState("")
     const {t}=  useTranslation();
+
+
+    const currentLanguage = localStorage.getItem('i18nextLng');
+
+    useEffect(() => {
+        const questionsPage = document.querySelectorAll('.ask-question');
+        questionsPage.forEach(question => {
+            if (currentLanguage === 'fr') {
+                question.style.backgroundColor = 'yellow'
+                question.style.color = 'yellow';
+              } else if (currentLanguage === 'en-US') {
+                question.style.color = 'black';
+                question.style.backgroundColor = 'white'
+              } else if (currentLanguage === 'hi') {
+                question.style.color = 'white';
+                question.style.backgroundColor = 'blue';
+              } else if (currentLanguage === 'zh') {
+                question.style.color = 'white';
+                question.style.backgroundColor = 'green';
+              } else {
+                question.style.color = 'white';
+              }
+        })
+    },[currentLanguage])
+
+
+    useEffect(() => {
+        const askfrom = document.querySelectorAll('.ask-question');
+        askfrom.forEach(form => {
+            if (currentLanguage === 'fr') {
+                form.style.color = 'black';
+              } else if (currentLanguage === 'en-US') {
+                form.style.color = 'black';
+              } else if (currentLanguage === 'hi') {
+                form.style.color = 'white';
+              } else if (currentLanguage === 'zh') {
+                form.style.color = 'white';
+              } else {
+                form.style.color = 'white';
+              }
+        })
+    },[currentLanguage])
 
     const handlesubmit = (e) => {
         e.preventDefault();

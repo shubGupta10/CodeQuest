@@ -10,12 +10,10 @@
     align-items: center;
     justify-content: flex-start;
     text-decoration: none;
-    color: black;
   }
   
   .user-profile-link h3 {
     padding: 10px 13px;
-    background-color: #d3d3d3;
     border-radius: 50%;
   }
   

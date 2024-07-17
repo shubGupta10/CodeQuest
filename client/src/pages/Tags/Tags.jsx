@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import Leftsidebar from "../../Comnponent/Leftsidebar/Leftsidebar.jsx"
 import Taglist from './Taglist';
 import './Tags.css';
@@ -16,6 +16,26 @@ const Tags = ({ slidein }) => {
             defaultValue: tag.tagDesc,
         }),
     }));
+
+    const currentLanguage = localStorage.getItem('i18nextLng');
+
+    useEffect(() => {
+        const tags = document.querySelectorAll('.home-container-1');
+        tags.forEach(tagselement => {
+            if (currentLanguage === 'fr') {
+                tagselement.style.color = 'black';
+              } else if (currentLanguage === 'en-US') {
+                tagselement.style.color = 'black';
+              } else if (currentLanguage === 'hi') {
+                tagselement.style.color = 'white';
+              } else if (currentLanguage === 'zh') {
+                tagselement.style.color = 'white';
+              } else {
+                tagselement.style.color = 'white';
+              }
+        })
+    },[currentLanguage])
+   
 
     return (
         <div className="home-container-1">

@@ -1,7 +1,6 @@
 import React, {useEffect} from 'react'
 import Question from './Question'
 function Questionlist({questionlist}) {
-  // console.log(questionlist)
 
   const currentLanguage = localStorage.getItem('i18nextLng');
 

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "./Rightsidebar.css";
 import comment from "../../assets/comment-alt-solid.svg";
 import pen from "../../assets/pen-solid.svg";
@@ -7,6 +7,25 @@ import { useTranslation } from "react-i18next";
 
 const Widget = () => {
   const { t } = useTranslation();
+
+  const currentLanguage = localStorage.getItem('i18nextLng');
+
+  useEffect(() => {
+    const Allwidget = document.querySelectorAll('.widget');
+    Allwidget.forEach(widget => {
+      if (currentLanguage === 'fr') {
+        widget.style.color = 'black';
+      } else if (currentLanguage === 'en-US') {
+        widget.style.color = 'black';
+      } else if (currentLanguage === 'hi') {
+        widget.style.color = 'white';
+      } else if (currentLanguage === 'zh') {
+        widget.style.color = 'white';
+      } else {
+        widget.style.color = 'white';
+      }
+    })
+  },[currentLanguage])
 
   return (
     <div className="widget">

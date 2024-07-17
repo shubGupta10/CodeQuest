@@ -27,7 +27,7 @@ function Navbar({ handleslidein }) {
         document.body.style.color = "black";
       } else if (currentLanguage === "hi") {
         document.body.style.backgroundColor = "blue";
-        document.body.style.color = "white";
+        navItem.style.color = "white";
       } else if (currentLanguage === "zh") {
         document.body.style.backgroundColor = "green";
         document.body.style.color = "white";
