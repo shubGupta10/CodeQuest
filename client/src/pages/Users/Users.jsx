@@ -21,7 +21,25 @@ const Users = ({slidein}) => {
       } else if (currentLanguage === 'zh') {
         usersPage.style.color = 'white';
       } else {
-        usersPage.style.color = 'white';
+        usersPage.style.color = 'black';
+      }
+    })
+  },[currentLanguage])
+
+
+  useEffect(() => {
+    const userProfile = document.querySelectorAll('.user-profile-link h5');
+    userProfile.forEach(users => {
+      if (currentLanguage === 'fr') {
+        users.style.color = 'yellow';
+      } else if (currentLanguage === 'en-US') {
+        users.style.color = 'black';
+      } else if (currentLanguage === 'hi') {
+        users.style.color = 'white';
+      } else if (currentLanguage === 'zh') {
+        users.style.color = 'white';
+      } else {
+        users.style.color = 'black';
       }
     })
   },[currentLanguage])

@@ -33,7 +33,7 @@ const Leftsidebar = ({ slidein }) => {
     } else if(currentLanguage === 'hi'){
       publicText.style.color = 'white';
     } else if(currentLanguage === 'zh'){
-      publicText.style.color = 'black';
+      publicText.style.color = 'white';
     }else {
       publicText.style.color = 'black';
     }

@@ -15,7 +15,7 @@ const Taglist = ({ tag }) => {
       } else if (currentLanguage === 'zh') {
         TagElement.style.color = 'white';
       } else {
-        TagElement.style.color = 'white';
+        TagElement.style.color = 'black';
       }
     });
   }, [currentLanguage]);

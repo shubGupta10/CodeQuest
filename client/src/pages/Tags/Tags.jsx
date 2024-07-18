@@ -31,7 +31,7 @@ const Tags = ({ slidein }) => {
               } else if (currentLanguage === 'zh') {
                 tagselement.style.color = 'white';
               } else {
-                tagselement.style.color = 'white';
+                tagselement.style.color = 'black';
               }
         })
     },[currentLanguage])

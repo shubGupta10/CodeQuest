@@ -77,7 +77,7 @@ const SendOtpPage = () => {
               } else if (currentLanguage === 'zh') {
                 sendotps.style.color = 'white';
               } else {
-                sendotps.style.color = 'white';
+                sendotps.style.color = 'black';
               }
         })
     },[currentLanguage])

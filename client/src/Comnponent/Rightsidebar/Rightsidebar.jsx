@@ -13,8 +13,8 @@ const Rightsidebar = () => {
           document.body.style.backgroundColor = 'blue';
         } else if (currentLanguage === 'zh') {
           document.body.style.backgroundColor = 'green';
-        } else {
-          document.body.style.backgroundColor = 'white';
+        } else{
+          document.body.style.color = 'black'
         }
       }, [currentLanguage]);
 

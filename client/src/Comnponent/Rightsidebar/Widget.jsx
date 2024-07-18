@@ -22,7 +22,7 @@ const Widget = () => {
       } else if (currentLanguage === 'zh') {
         widget.style.color = 'white';
       } else {
-        widget.style.color = 'white';
+        widget.style.color = 'black';
       }
     })
   },[currentLanguage])

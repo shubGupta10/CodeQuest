@@ -27,7 +27,9 @@ const Auth = () => {
       document.querySelector('.auth-container-2').style.color = "black";
     } else if (currentLanguage === "hi") {
       document.body.style.backgroundColor = "blue";
-      document.querySelector('.auth-container-2').style.color = "white";
+      document.querySelector('.auth-container-2 form').style.color = "black";
+      document.querySelector('.handle-switch-btn').style.color = 'white'
+      document.querySelector('.isSignup').style.color = 'white'
     } else if (currentLanguage === "zh") {
       document.body.style.backgroundColor = "green";
       document.querySelector('.auth-container-2').style.color = "white";
@@ -137,7 +139,7 @@ const Auth = () => {
             {issignup ? t('auth.signup') : t('auth.login')}
           </button>
         </form>
-        <p>
+        <p className="isSignup">
           {issignup ? t('auth.alreadyHaveAccount') : t('auth.dontHaveAccount')}
           <button
             type="button"

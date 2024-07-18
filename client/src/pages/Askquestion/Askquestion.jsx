@@ -51,7 +51,7 @@ const Askquestion = () => {
               } else if (currentLanguage === 'zh') {
                 form.style.color = 'white';
               } else {
-                form.style.color = 'white';
+                form.style.color = 'black';
               }
         })
     },[currentLanguage])

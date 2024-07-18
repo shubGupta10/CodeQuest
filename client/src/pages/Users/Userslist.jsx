@@ -35,8 +35,10 @@ const Userslist = () => {
         usersbg.style.color = 'white';
       } else if (currentLanguage === 'zh') {
         usersbg.style.color = 'white';
+        usersbg.style.backgroundColor = 'black'
       } else {
         usersbg.style.color = 'white';
+        usersbg.style.backgroundColor = 'black'
       }
     });
   }, [currentLanguage]);

@@ -33,7 +33,7 @@ const Userprofile = ({ slidein }) => {
       } else if (currentLanguage === 'zh') {
         textElement.style.color = 'white';
       } else {
-        document.body.style.color = 'white';
+        document.body.style.color = 'black';
       }
     });
   }, [currentLanguage]);
