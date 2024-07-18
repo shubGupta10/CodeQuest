@@ -22,6 +22,8 @@ const SendOTP = () => {
         container.style.backgroundColor = 'blue';
       } else if (currentLanguage === 'zh') {
         container.style.backgroundColor = 'green';
+        document.querySelector('.title').style.color = 'white';
+        document.querySelector('.subtitle').style.color = 'white';
       } else {
         container.style.backgroundColor = 'white';
       }

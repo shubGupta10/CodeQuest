@@ -29,6 +29,7 @@ const ChooseOption = () => {
       } else if (currentLanguage === "zh") {
         container.style.backgroundColor = "green";
         container.style.color = "white";
+        document.querySelector('.title').style.color = 'white'
       } else {
         container.style.backgroundColor = "white";
       }

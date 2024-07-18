@@ -24,6 +24,7 @@ const VerifyOTP = () => {
         container.style.backgroundColor = 'yellow';
       } else if(currentLanguage === 'zh'){
         container.style.backgroundColor = 'green';
+        document.querySelector('.title').style.color = 'white';
       } else{
         container.style.backgroundColor = 'white';
       }

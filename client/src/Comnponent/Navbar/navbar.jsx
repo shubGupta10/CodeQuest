@@ -30,12 +30,27 @@ function Navbar({ handleslidein }) {
         navItem.style.color = "white";
       } else if (currentLanguage === "zh") {
         document.body.style.backgroundColor = "green";
-        document.body.style.color = "white";
         navItem.style.color = 'white'; 
       } else {
         document.body.style.backgroundColor = "white";
       }
     });
+  }, [currentLanguage]);
+
+  useEffect(() => {
+    const logoutButton = document.getElementById('#logoutBtn');
+    if (logoutButton) {
+      if(currentLanguage === 'fr'){
+        logoutButton.style.color = 'black';
+      } else if(currentLanguage === 'en-US'){
+        logoutButton.style.color = 'black'
+      } else if(currentLanguage === 'hi'){
+        logoutButton.style.color = 'white'
+      } else if(currentLanguage === 'zh'){
+        logoutButton.style.color = 'white';
+        logoutButton.style.backgroundColor = 'black'
+      }
+    }
   }, [currentLanguage]);
 
   const handlelogout = () => {
@@ -55,6 +70,7 @@ function Navbar({ handleslidein }) {
     }
     dispatch(setcurrentuser(JSON.parse(localStorage.getItem("Profile"))));
   }, [User?.token, dispatch]);
+
   return (
     <nav className="main-nav">
       <div className="navbar">
@@ -104,7 +120,8 @@ function Navbar({ handleslidein }) {
                 </Link>
               </Avatar>
               <button
-                className="nav-tem nav-links"
+                className="nav-item nav-links"
+                id="logoutBtn"
                 style={{ marginLeft: "7px" }}
                 onClick={handlelogout}
               >

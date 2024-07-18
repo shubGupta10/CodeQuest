@@ -32,7 +32,9 @@ const Auth = () => {
       document.querySelector('.isSignup').style.color = 'white'
     } else if (currentLanguage === "zh") {
       document.body.style.backgroundColor = "green";
-      document.querySelector('.auth-container-2').style.color = "white";
+      document.querySelector('.auth-container-2').style.color = "black";
+      document.querySelector('.isSignup').style.color = 'white'
+      document.querySelector('.handle-switch-btn').style.color = 'white'
     } else {
       document.body.style.backgroundColor = "white";
       document.querySelector('.auth-container-2').style.color = "black";

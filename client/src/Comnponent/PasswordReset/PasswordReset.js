@@ -23,7 +23,7 @@ const PasswordReset = () => {
         document.body.style.color = "white";
       } else if (currentLanguage === "zh") {
         document.body.style.backgroundColor = "green";
-        document.body.style.color = "white";
+        document.querySelector('.auth-container').style.color = 'white'
       } else {
         document.body.style.backgroundColor = "white";
       }
