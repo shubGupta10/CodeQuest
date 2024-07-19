@@ -56,7 +56,8 @@ function Navbar({ handleslidein }) {
   const handlelogout = () => {
     dispatch({ type: "LOGOUT" });
     navigate("/");
-    localStorage.clear();
+    window.location.reload();
+    localStorage.removeItem('Profile');
     dispatch(setcurrentuser(null));
   };
 

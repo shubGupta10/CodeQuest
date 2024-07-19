@@ -31,7 +31,7 @@ const Users = ({slidein}) => {
     const userProfile = document.querySelectorAll('.user-profile-link h5');
     userProfile.forEach(users => {
       if (currentLanguage === 'fr') {
-        users.style.color = 'yellow';
+        users.style.color = 'black';
       } else if (currentLanguage === 'en-US') {
         users.style.color = 'black';
       } else if (currentLanguage === 'hi') {
