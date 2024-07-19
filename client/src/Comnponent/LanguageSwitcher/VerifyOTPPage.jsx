@@ -71,6 +71,7 @@ const VerifyOtpPage = () => {
             i18n.changeLanguage(langCode);
             alert("Language Changed.");
             navigate('/');
+            window.location.reload();
         } catch (err) {
             setError(err.message || 'Invalid OTP. Please try again.');
             console.error(err);

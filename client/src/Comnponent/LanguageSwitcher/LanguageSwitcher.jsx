@@ -18,20 +18,7 @@ const LanguageSwitcher = () => {
         { code: 'zh', name: 'Chinese' }
     ];
 
-    // const currentLanguage = localStorage.getItem('i18nextLng');
 
-
-    // useEffect(() => {
-    //     if(currentLanguage === "fr"){
-    //         document.body.style.backgroundColor = 'yellow';
-    //     }else if(currentLanguage === "hi"){
-    //         document.body.style.backgroundColor = 'blue';
-    //     }else if(currentLanguage === "zh"){
-    //         document.body.style.backgroundColor = 'green';
-    //     }else{
-    //         document.body.style.backgroundColor = 'white';
-    //     }
-    // },[currentLanguage]);
 
     const toggleDropdown = () => {
         setIsOpen(!isOpen);
@@ -39,13 +26,16 @@ const LanguageSwitcher = () => {
 
     const initiateLanguageChange = (langCode) => {
         if (langCode === 'en') {
-            i18n.changeLanguage(langCode);
+            i18n.changeLanguage(langCode).then(() => {
+                window.location.reload();
+            });
             setIsOpen(false);
         } else {
             navigate('/sending-otp', { state: { langCode } });
             setIsOpen(false);
         }
     };
+    
 
 
     return (

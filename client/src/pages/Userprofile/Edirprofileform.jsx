@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useDispatch } from 'react-redux'
 import { updateprofile } from '../../action/users'
 import './Userprofile.css'
@@ -21,6 +21,22 @@ const Edirprofileform = ({ currentuser, setswitch }) => {
     }
     setswitch(false)
   }
+
+
+  const currentLanguage = localStorage.getItem('i18nextLng');
+  useEffect(() => {
+    if(currentLanguage === 'fr'){
+      document.querySelector('.edit-profile-title-2').style.color = 'black'
+    }else if(currentLanguage === 'hi'){
+      document.querySelector('.edit-profile-title-2').style.color = 'white'
+    } else if(currentLanguage === 'zh'){
+      document.querySelector('.edit-profile-title-2').style.color = 'white'
+    }else{
+      document.querySelector('.edit-profile-title-2').style.color = 'black'
+    }
+    
+  },[currentLanguage])
+
   return (
     <div>
       <h1 className="edit-profile-title">{t('editprofilePage.editprofileTitle')}</h1>
