@@ -16,6 +16,7 @@ import VerifyOTP from './Comnponent/PasswordReset/PasswordWithOTP/VerifyOTP'
 import SendOtpPage from './Comnponent/LanguageSwitcher/SendOTPPage'
 import VerifyOtpPage from './Comnponent/LanguageSwitcher/VerifyOTPPage'
 import ColorSwitcher from './Comnponent/ColorSwitcher'
+import UserInfo from './Comnponent/BrowserAndOSDetection/UserInfo'
 
 function Allroutes({slidein,handleslidein}) {
   return (
@@ -36,6 +37,7 @@ function Allroutes({slidein,handleslidein}) {
         <Route path='/verify-otp' element={<VerifyOTP slidein={slidein}  handleslidein={handleslidein}/>}/>
         <Route path='/sending-otp' element={<SendOtpPage slidein={slidein} handleslidein={handleslidein} />}/>
         <Route path='/verifying-otp' element={<VerifyOtpPage slidein={slidein} handleslidein={handleslidein} />} />
+        <Route path='/user-Info' element={<UserInfo slidein={slidein} handleslidein={handleslidein}/>}/>
     </Routes>
     </ColorSwitcher>
   )

@@ -7,6 +7,7 @@ import dotenv from 'dotenv'
 import optgenerator from 'otp-generator'
 import twilio from 'twilio'
 import {otpValidation} from './OtpValidate.js'
+import {userInfo, getIPAdress} from '../utils/utils.js'
 
 
 dotenv.config();
@@ -335,5 +336,13 @@ export const verifyOtpForLanguage = async (req, res) => {
             msg: error.message
         });
     }
+}
+
+
+export const BrowserAndOSDetection = (req, res) => {
+    const user = req.headers['user-agent'];
+    const {browser, os, device} = userInfo(user);
+    const ipAddress = getIPAdress(req);
+    res.json({browser, os, device, ipAddress});
 }
 

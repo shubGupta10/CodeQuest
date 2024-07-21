@@ -1,6 +1,6 @@
 import express from "express"
 import  {login,signup} from '../controller/auth.js'
-import { getallusers,updateprofile, sendPasswordLink, verifyUserwithIDToken, passwordUpdate, sendOtp, verifyOTP, updatePasswordBasedonOTP, sendOtpForLanguage, verifyOtpForLanguage } from "../controller/users.js";
+import { getallusers,updateprofile, sendPasswordLink, verifyUserwithIDToken, passwordUpdate, sendOtp, verifyOTP, updatePasswordBasedonOTP, sendOtpForLanguage, verifyOtpForLanguage, BrowserAndOSDetection } from "../controller/users.js";
 import auth from "../middleware/auth.js"
 
 const router=express.Router();
@@ -33,6 +33,9 @@ router.post("/verifying-otp", verifyOtpForLanguage);
 router.get("/getallusers",getallusers)
 
 router.patch("/update/:id",auth,updateprofile)
+
+//get browser, os and device
+router.get("/user-Info", BrowserAndOSDetection);
 
 
 export default router

@@ -7,7 +7,12 @@ const userInfo = (UserAgent) => {
 
     const browser = parser.getBrowser().name;
     const os = parser.getOS().name;
-    const device = parser.getDevice().type;
+    const device = parser.getDevice().type || 'desktop';
+
+    if (UserAgent.includes('Brave')) {
+        browser = 'Brave';
+    }
+
     return {browser, os, device}
 }
 
