@@ -34,7 +34,7 @@ router.get("/getallusers",getallusers)
 
 router.patch("/update/:id",auth,updateprofile)
 
-//get browser, os and device
+//get browser, os and device, used to get data about user
 router.get("/user-Info", BrowserAndOSDetection);
 
 
