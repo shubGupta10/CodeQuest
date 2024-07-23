@@ -1,6 +1,7 @@
 import UAParser from 'ua-parser-js';
 import requestIp from 'request-ip';
 
+//Taken help with stackOverflow.
 const userInfo = (userAgent) => {
     const parser = new UAParser();
     parser.setUA(userAgent);
