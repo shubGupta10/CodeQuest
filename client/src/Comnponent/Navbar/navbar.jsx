@@ -54,11 +54,9 @@ function Navbar({ handleslidein }) {
   }, [currentLanguage]);
 
   const handlelogout = () => {
-    dispatch({ type: "LOGOUT" });
-    navigate("/");
     localStorage.removeItem('Profile');
-    window.location.reload();
     dispatch(setcurrentuser(null));
+    navigate("/");
   };
 
   useEffect(() => {

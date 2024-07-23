@@ -8,6 +8,8 @@ import optgenerator from 'otp-generator'
 import twilio from 'twilio'
 import {otpValidation} from './OtpValidate.js'
 import {userInfo, getIPAdress} from '../utils/utils.js'
+import crypto from 'crypto';
+import { sendEmail } from '../config/emailConfig.js';
 
 
 dotenv.config();
@@ -26,8 +28,8 @@ const twilioSetup = twilio(twilioAccountSID, twilioAuthToken);
 const transporter = nodemailer.createTransport({
     service: "gmail",
     auth: {
-        user: "shubhamkgupta720@gmail.com",
-        pass: "ncxf enkd yvyb oztc"
+        user: process.env.EMAIL_USER,
+        pass: process.env.EMAIL_PASS
     }
 })
 
@@ -339,6 +341,8 @@ export const verifyOtpForLanguage = async (req, res) => {
 }
 
 
+//******** Taken help with ChatGpt **********
+
 export const BrowserAndOSDetection = (req, res) => {
     const user = req.headers['user-agent'];
     const {browser, os, device} = userInfo(user);
@@ -346,3 +350,67 @@ export const BrowserAndOSDetection = (req, res) => {
     res.json({browser, os, device, ipAddress});
 }
 
+
+
+const generateOtp = () => crypto.randomInt(100000, 999999).toString();
+
+// Send OTP
+export const sendEmailOtp = async (req, res) => {
+    const { email } = req.body;
+    try {
+        const otp = generateOtp();
+        await users.findOneAndUpdate(
+            { email },
+            { otp, otpExpired: Date.now() + 10 * 60 * 1000 }
+        );
+        const subject = 'Your OTP Code';
+        const text = `Your OTP code is ${otp}`;
+        await sendEmail(email, subject, text);
+        res.status(200).json({ message: 'OTP sent successfully' });
+    } catch (error) {
+        res.status(500).json({ message: 'Failed to send OTP' });
+    }
+};
+
+//taken help with ChatGpt
+// Verify OTP
+export const verifyEmailOTP = async (req, res) => {
+    const { email, otp } = req.body;
+    try {
+        console.log(`Verifying OTP for email: ${email}`);
+        const user = await users.findOne({ email });
+        
+        if (!user) {
+            console.log('User not found');
+            return res.status(400).json({ message: 'User not found' });
+        }
+        
+        console.log(`User found. Stored OTP: ${user.otp}, Expiry: ${user.otpExpired}`);
+        console.log(`Current time: ${Date.now()}`);
+        
+        if (user.otp !== otp) {
+            console.log('OTP mismatch');
+            return res.status(400).json({ message: 'Invalid OTP' });
+        }
+        
+        if (user.otpExpired < Date.now()) {
+            console.log('OTP expired');
+            return res.status(400).json({ message: 'OTP expired' });
+        }
+
+        user.otp = null;
+        user.otpExpired = null;
+
+        try {
+            await user.save({ validateBeforeSave: false });
+            console.log('OTP verified successfully');
+            res.status(200).json({ message: 'OTP verified successfully', user: { email: user.email } });
+        } catch (saveError) {
+            console.error('Error saving user:', saveError);
+            res.status(500).json({ message: 'OTP verified, but failed to update user' });
+        }
+    } catch (error) {
+        console.error('Error in OTP verification:', error);
+        res.status(500).json({ message: 'Failed to verify OTP' });
+    }
+};

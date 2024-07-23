@@ -17,6 +17,9 @@ import SendOtpPage from './Comnponent/LanguageSwitcher/SendOTPPage'
 import VerifyOtpPage from './Comnponent/LanguageSwitcher/VerifyOTPPage'
 import ColorSwitcher from './Comnponent/ColorSwitcher'
 import UserInfo from './Comnponent/BrowserAndOSDetection/UserInfo'
+import EmailOtpForm from './Comnponent/BrowserAndOSDetection/EmailOtpForm'
+import VerifyOtpForm from './Comnponent/BrowserAndOSDetection/VerifyEmailOTP'
+
 
 function Allroutes({slidein,handleslidein}) {
   return (
@@ -24,6 +27,8 @@ function Allroutes({slidein,handleslidein}) {
     <Routes>
         <Route path='/' element={<Home slidein={slidein} handleslidein={handleslidein}/>}/>
         <Route path='/Askquestion' element={<Askquestion />}/>
+        <Route path='/email-otp-form' element={<EmailOtpForm slidein={slidein} handleslidein={handleslidein}/>}/>
+        <Route path='/verify-email-otp' element={<VerifyOtpForm slidein={slidein} handleslidein={handleslidein}/>}/>
         <Route path='/Auth' element={<Auth />}/>
         <Route path='/Question' element={<Question slidein={slidein} handleslidein={handleslidein}/>}/>
         <Route path='/Question/:id' element={<Displayquestion slidein={slidein} handleslidein={handleslidein}/>}/>

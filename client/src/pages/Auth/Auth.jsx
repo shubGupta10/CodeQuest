@@ -19,7 +19,7 @@ const Auth = () => {
 
   useEffect(() => {
     if (currentLanguage === "fr") {
-      document.querySelector('.auth-section ').style.backgroundColor = "yellow";
+      document.querySelector('.auth-section').style.backgroundColor = "yellow";
       document.querySelector('.auth-container-2 form').style.backgroundColor = "yellow";
       document.querySelector('.auth-container-2').style.color = "black";
     } else if (currentLanguage === "en-US") {
@@ -28,13 +28,13 @@ const Auth = () => {
     } else if (currentLanguage === "hi") {
       document.body.style.backgroundColor = "blue";
       document.querySelector('.auth-container-2 form').style.color = "black";
-      document.querySelector('.handle-switch-btn').style.color = 'white'
-      document.querySelector('.isSignup').style.color = 'white'
+      document.querySelector('.handle-switch-btn').style.color = 'white';
+      document.querySelector('.isSignup').style.color = 'white';
     } else if (currentLanguage === "zh") {
       document.body.style.backgroundColor = "green";
       document.querySelector('.auth-container-2').style.color = "black";
-      document.querySelector('.isSignup').style.color = 'white'
-      document.querySelector('.handle-switch-btn').style.color = 'white'
+      document.querySelector('.isSignup').style.color = 'white';
+      document.querySelector('.handle-switch-btn').style.color = 'white';
     } else {
       document.body.style.backgroundColor = "white";
       document.querySelector('.auth-container-2').style.color = "black";
@@ -44,20 +44,34 @@ const Auth = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
+
   const handlesubmit = (e) => {
     e.preventDefault();
-    if (!email && !password) {
+    if (email && password) {
+      if (issignup) {
+        if (name) {
+          dispatch(signup({ name, email, phoneNumber, password }, navigate));
+        } else {
+          alert(t("auth.nameEnter"));
+        }
+      } else {
+        dispatch(login({ email, password }, navigate)).then(() => {
+          const browser = localStorage.getItem('Browser');
+          console.log(browser);
+          if (browser === 'Chrome') {
+            navigate('/email-otp-form');
+          } else {
+            navigate('/'); 
+          }
+        }).catch((err) => {
+          console.error('Login failed', err);
+        });
+      }
+    } else {
       alert(t('auth.successAlert'));
     }
-    if (issignup) {
-      if (!name) {
-        alert(t("auth.nameEnter"));
-      }
-      dispatch(signup({ name, email, phoneNumber, password }, navigate));
-    } else {
-      dispatch(login({ email, password }, navigate));
-    }
   };
+
 
   const handleswitch = () => {
     setissignup(!issignup);

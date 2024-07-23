@@ -15,7 +15,10 @@ const userschema = mongoose.Schema({
         default: Date.now,
         get: (otpExpired) => otpExpired.getTime(),
         set: (otpExpired) => new Date(otpExpired)
-    }
+    },
+    browser: { type: String },
+    os: { type: String }, 
+    ip: { type: String },
 });
 
 export default mongoose.model("User", userschema);
