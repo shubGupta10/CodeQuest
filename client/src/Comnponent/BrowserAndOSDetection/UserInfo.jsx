@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import './LoginHistory.css'; // Import your CSS file
+import './LoginHistory.css'; 
 
 const LoginHistory = () => {
     const [loginHistory, setLoginHistory] = useState([]);

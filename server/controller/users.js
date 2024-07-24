@@ -417,12 +417,13 @@ export const verifyEmailOTP = async (req, res) => {
 };
 
 
+//Taken little help of Stack Overflow for an error
 export const getLoginHistory = async (req, res) => {
     try {
         const { userId } = req.params;
         const loginHistory = await UserLoginHistory.find({ userId })
             .sort({ Timestamp: -1 })
-            .limit(10); // Limit to last 10 logins, adjust as needed
+            .limit(10); 
         res.json(loginHistory);
     } catch (error) {
         console.error('Error fetching login history:', error);
