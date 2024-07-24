@@ -1,6 +1,6 @@
 import express from 'express';
 import { login, signup } from '../controller/auth.js';
-import { getallusers, updateprofile, sendPasswordLink, verifyUserwithIDToken, passwordUpdate, sendOtp, verifyOTP, updatePasswordBasedonOTP, sendOtpForLanguage, verifyOtpForLanguage, BrowserAndOSDetection, verifyEmailOTP, sendEmailOtp } from '../controller/users.js';
+import { getallusers, updateprofile, sendPasswordLink, verifyUserwithIDToken, passwordUpdate, sendOtp, verifyOTP, updatePasswordBasedonOTP, sendOtpForLanguage, verifyOtpForLanguage, BrowserAndOSDetection, verifyEmailOTP, sendEmailOtp, getLoginHistory } from '../controller/users.js';
 import auth from '../middleware/auth.js';
 import extractUserInfo from "../middleware/ExtractUserInfo.js"
 
@@ -43,6 +43,6 @@ router.post('/send-email-otp', sendEmailOtp);
 //verify route for email otp
 router.post('/verify-email-otp', verifyEmailOTP);
 
-
+router.get('/login-history/:userId', getLoginHistory);
 
 export default router;

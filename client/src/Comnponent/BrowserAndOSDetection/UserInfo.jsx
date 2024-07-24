@@ -1,41 +1,69 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import './LoginHistory.css'; // Import your CSS file
 
-const UserInfo = () => {
-  const [userInfo, setUserInfo] = useState(null);
+const LoginHistory = () => {
+    const [loginHistory, setLoginHistory] = useState([]);
+    const [loading, setLoading] = useState(true);
 
-  useEffect(() => {
-    const fetchUser = async () => {
-      try {
-        const response = await axios.get('http://localhost:5000/user/user-Info');
-        setUserInfo(response.data);
-        const data = response.data;
-        if(data.ipAddress === '::1'){
-            data.ipAddress = '127.0.0.1';
-        }
-      } catch (error) {
-        console.error('Error fetching data', error);
-      }
-    };
+    useEffect(() => {
+        const fetchLoginHistory = async () => {
+            try {
+                const userProfile = JSON.parse(localStorage.getItem('Profile'));
+                if (!userProfile || !userProfile.result._id) {
+                    console.error('User profile or ID not found in localStorage');
+                    return;
+                }
+                const userId = userProfile.result._id;
+                const response = await axios.get(`http://localhost:5000/user/login-history/${userId}`);
+                setLoginHistory(response.data);
+            } catch (error) {
+                console.error('Error fetching login history:', error);
+            } finally {
+                setLoading(false);
+            }
+        };
 
-    fetchUser();
-  }, []);
+        fetchLoginHistory();
+    }, []);
 
-  return (
-    <div>
-      <h2>User Info</h2>
-      {userInfo ? (
-        <div>
-          <p>Browser: {userInfo.browser}</p>
-          <p>OS: {userInfo.os}</p>
-          <p>Device: {userInfo.device}</p>
-          <p>IP Address: {userInfo.ipAddress}</p>
+    if (loading) {
+        return (
+            <div className="loading-container">
+                <div className="loader"></div>
+            </div>
+        );
+    }
+
+    return (
+        <div className="container">
+            <h2 className="title">Login History</h2>
+            <div className="table-container">
+                <table className="login-table">
+                    <thead>
+                        <tr>
+                            <th>Date</th>
+                            <th>Browser</th>
+                            <th>OS</th>
+                            <th>Device</th>
+                            <th>IP Address</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {loginHistory.map((login, index) => (
+                            <tr key={index}>
+                                <td>{new Date(login.Timestamp).toLocaleString()}</td>
+                                <td>{login.browser}</td>
+                                <td>{login.os}</td>
+                                <td>{login.device}</td>
+                                <td>{login.ipAddress}</td>
+                            </tr>
+                        ))}
+                    </tbody>
+                </table>
+            </div>
         </div>
-      ) : (
-        <p>Loading...</p>
-      )}
-    </div>
-  );
+    );
 };
 
-export default UserInfo;
+export default LoginHistory;

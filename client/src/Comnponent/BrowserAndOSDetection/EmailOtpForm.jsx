@@ -6,10 +6,12 @@ import './SendOtpForm.css';
 const SendOtpForm = () => {
     const [email, setEmail] = useState('');
     const [message, setMessage] = useState('');
+    const [loading, setLoading] = useState(false); 
     const navigate = useNavigate();
 
     const handleSubmit = async (e) => {
         e.preventDefault();
+        setLoading(true); 
         try {
             const response = await axios.post('http://localhost:5000/user/send-email-otp', { email });
             
@@ -30,6 +32,8 @@ const SendOtpForm = () => {
             } else {
                 setMessage('Error sending OTP. Please try again.');
             }
+        } finally {
+            setLoading(false); 
         }
     };
 
@@ -47,7 +51,9 @@ const SendOtpForm = () => {
                         required
                         className="form-input"
                     />
-                    <button type="submit" className="form-button">Send OTP</button>
+                    <button type="submit" className="form-button" disabled={loading}>
+                        {loading ? 'Sending...' : 'Send OTP'}
+                    </button>
                 </form>
                 {message && <p className="form-message">{message}</p>}
             </div>

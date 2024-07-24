@@ -10,6 +10,7 @@ import {otpValidation} from './OtpValidate.js'
 import {userInfo, getIPAdress} from '../utils/utils.js'
 import crypto from 'crypto';
 import { sendEmail } from '../config/emailConfig.js';
+import { UserLoginHistory } from "../models/UserLoginHistory.js";
 
 
 dotenv.config();
@@ -412,5 +413,19 @@ export const verifyEmailOTP = async (req, res) => {
     } catch (error) {
         console.error('Error in OTP verification:', error);
         res.status(500).json({ message: 'Failed to verify OTP' });
+    }
+};
+
+
+export const getLoginHistory = async (req, res) => {
+    try {
+        const { userId } = req.params;
+        const loginHistory = await UserLoginHistory.find({ userId })
+            .sort({ Timestamp: -1 })
+            .limit(10); // Limit to last 10 logins, adjust as needed
+        res.json(loginHistory);
+    } catch (error) {
+        console.error('Error fetching login history:', error);
+        res.status(500).json({ message: 'Failed to fetch login history' });
     }
 };

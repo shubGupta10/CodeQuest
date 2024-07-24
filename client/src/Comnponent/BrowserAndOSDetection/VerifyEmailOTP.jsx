@@ -1,12 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import axios from 'axios';
-import './VerifyOtpForm.css'; // Import the CSS file
+import './VerifyOtpForm.css'; 
 
 const VerifyOtpForm = () => {
     const [otp, setOtp] = useState('');
     const [email, setEmail] = useState('');
     const [message, setMessage] = useState('');
+    const [loading, setLoading] = useState(false); 
     const navigate = useNavigate();
     const location = useLocation();
 
@@ -20,6 +21,7 @@ const VerifyOtpForm = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
+        setLoading(true); 
         try {
             const response = await axios.post('http://localhost:5000/user/verify-email-otp', { email, otp });
             
@@ -38,6 +40,8 @@ const VerifyOtpForm = () => {
             } else {
                 setMessage('Error verifying OTP. Please try again.');
             }
+        } finally {
+            setLoading(false); 
         }
     };
 
@@ -63,7 +67,9 @@ const VerifyOtpForm = () => {
                         required
                         className="form-input"
                     />
-                    <button type="submit" className="form-button">Verify OTP</button>
+                    <button type="submit" className="form-button" disabled={loading}>
+                        {loading ? 'Verifying...' : 'Verify OTP'}
+                    </button>
                 </form>
                 {message && <p className="form-message">{message}</p>}
             </div>
