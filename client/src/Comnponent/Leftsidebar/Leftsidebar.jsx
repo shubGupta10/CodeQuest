@@ -76,7 +76,7 @@ const Leftsidebar = ({ slidein }) => {
               <p>{t('leftsidebar.userstext')}</p>
             </NavLink>
             <NavLink to='/user-Info' className='side-nav-links' activeclassname='active' style={{ paddingLeft: "40px" }}>
-              <p>UserInfo</p>
+              <p>User Login History</p>
             </NavLink>
           </button>
         </div>
