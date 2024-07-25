@@ -25,6 +25,7 @@ function Allroutes({ slidein, handleslidein }) {
   const [accessDenied, setAccessDenied] = useState(false);
   const navigate = useNavigate();
 
+  //Taken a little help of chatGpt to fix an issue.
   useEffect(() => {
     const checkAccessRestrictions = () => {
       const userProfile = JSON.parse(localStorage.getItem('Profile'));
