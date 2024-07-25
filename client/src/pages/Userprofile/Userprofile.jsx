@@ -46,7 +46,7 @@ const Userprofile = ({ slidein }) => {
           <div className="user-details-container">
             <div className="user-details">
               <Avatar backgroundColor="purple" color="white" fontSize="50px" px="40px" py="30px">
-                {currentprofile?.name.charAt(0).toUpperCase()}
+                {currentprofile?.name?.charAt(0).toUpperCase()}
               </Avatar>
               <div className="user-name">
                 <h1>{currentprofile?.name}</h1>
