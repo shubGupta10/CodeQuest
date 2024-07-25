@@ -5,6 +5,7 @@ import './LoginHistory.css';
 const LoginHistory = () => {
     const [loginHistory, setLoginHistory] = useState([]);
     const [loading, setLoading] = useState(true);
+    const [accessDenied, setAccessDenied] = useState(false);
 
     useEffect(() => {
         const fetchLoginHistory = async () => {
@@ -16,7 +17,18 @@ const LoginHistory = () => {
                 }
                 const userId = userProfile.result._id;
                 const response = await axios.get(`http://localhost:5000/user/login-history/${userId}`);
-                setLoginHistory(response.data);
+
+                const latestLogin = response.data;
+
+                const currentTime = new Date();
+                const currentHour = currentTime.getHours();
+                const isMobile = latestLogin.device === 'Android' || latestLogin.device === 'mobile';
+
+                if (isMobile && (currentHour < 10 || currentHour >= 13)) {
+                    setAccessDenied(true);
+                } else {
+                    setLoginHistory(latestLogin);
+                }
             } catch (error) {
                 console.error('Error fetching login history:', error);
             } finally {
@@ -31,6 +43,14 @@ const LoginHistory = () => {
         return (
             <div className="loading-container">
                 <div className="loader"></div>
+            </div>
+        );
+    }
+
+    if (accessDenied) {
+        return (
+            <div className="access-denied">
+                Access restricted to mobile devices outside 10 AM to 1 PM
             </div>
         );
     }
@@ -52,7 +72,7 @@ const LoginHistory = () => {
                     <tbody>
                         {loginHistory.map((login, index) => (
                             <tr key={index}>
-                                <td>{new Date(login.Timestamp).toLocaleString()}</td>
+                                <td>{isNaN(new Date(login.Timestamp).getTime()) ? 'Invalid Date' : new Date(login.Timestamp).toLocaleString()}</td>
                                 <td>{login.browser}</td>
                                 <td>{login.os}</td>
                                 <td>{login.device}</td>
