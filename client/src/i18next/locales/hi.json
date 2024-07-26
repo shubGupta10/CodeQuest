@@ -163,7 +163,28 @@
   "verifyOtpbutton": "OTP सत्यापित करें",
   "changePassh2": "पासवर्ड बदलें",
   "changepassbutton": "पासवर्ड बदलें"
+},
+
+"QuestionDetails": {
+    "loadingtext": "लोड हो रहा है...",
+    "shareText": "साझा करें",
+    "deleteText": "हटाएं",
+    "askedtext": "पूछा गया",
+    "answerText": "उत्तर",
+    "yourAnstext": "आपका उत्तर",
+    "browserOtherQues": "टैग किए गए अन्य प्रश्न ब्राउज़ करें",
+    "askYourQues": "अपना खुद का प्रश्न पूछें",
+    "postAnsBtn": "अपना उत्तर पोस्ट करें"
+},
+
+ "displayAnswer": {
+    "shareText": "साझा करें",
+    "deleteText": "हटाएं",
+    "answeredText": "उत्तर दिया"
 }
+
+
+
 
 
 

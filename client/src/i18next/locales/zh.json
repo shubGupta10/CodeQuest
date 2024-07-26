@@ -165,7 +165,28 @@
   "verifyOtpbutton": "验证OTP",
   "changePassh2": "更改密码",
   "changepassbutton": "更改密码"
+},
+
+"QuestionDetails": {
+    "loadingtext": "加载中...",
+    "shareText": "分享",
+    "deleteText": "删除",
+    "askedtext": "已问",
+    "answerText": "答案",
+    "yourAnstext": "你的答案",
+    "browserOtherQues": "浏览其他标签的问题",
+    "askYourQues": "提出你自己的问题",
+    "postAnsBtn": "发布你的答案"
+},
+
+ "displayAnswer": {
+    "shareText": "分享",
+    "deleteText": "删除",
+    "answeredText": "已回答"
 }
+
+
+
 
 
 

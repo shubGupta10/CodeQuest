@@ -163,9 +163,25 @@
   "verifyOtpbutton": "Verificar OTP",
   "changePassh2": "Cambiar Contraseña",
   "changepassbutton": "Cambiar Contraseña"
+},
+
+"QuestionDetails": {
+    "loadingtext": "Cargando...",
+    "shareText": "Compartir",
+    "deleteText": "Eliminar",
+    "askedtext": "Preguntado",
+    "answerText": "Respuestas",
+    "yourAnstext": "Tu respuesta",
+    "browserOtherQues": "navegar otras preguntas etiquetadas",
+    "askYourQues": "Haz tu propia pregunta",
+    "postAnsBtn": "Publica tu respuesta"
+},
+
+ "displayAnswer": {
+    "shareText": "Compartir",
+    "deleteText": "Eliminar",
+    "answeredText": "respondido"
 }
-
-
 
 
 

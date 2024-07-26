@@ -164,7 +164,28 @@
   "verifyOtpbutton": "Vérifier OTP",
   "changePassh2": "Changer le Mot de Passe",
   "changepassbutton": "Changer le Mot de Passe"
+},
+
+"QuestionDetails": {
+    "loadingtext": "Chargement...",
+    "shareText": "Partager",
+    "deleteText": "Supprimer",
+    "askedtext": "Demandé",
+    "answerText": "Réponses",
+    "yourAnstext": "Votre réponse",
+    "browserOtherQues": "parcourir d'autres questions étiquetées",
+    "askYourQues": "Posez votre propre question",
+    "postAnsBtn": "Postez votre réponse"
+},
+
+ "displayAnswer": {
+    "shareText": "Partager",
+    "deleteText": "Supprimer",
+    "answeredText": "répondu"
 }
+
+
+
 
 
 

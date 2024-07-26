@@ -182,6 +182,24 @@
 
  "widgeting": {
     "watchTg": "Watched tags"
+ },
+
+ "QuestionDetails": {
+    "loadingtext": "Loading...",
+    "shareText": "Share",
+    "deleteText": "Delete",
+    "askedtext": "Asked",
+    "answerText": "Answers",
+    "yourAnstext": "Your Answer",
+    "browserOtherQues": "browse other Question tagged",
+    "askYourQues": "Ask your own question",
+    "postAnsBtn": "Post your Answer"
+ },
+
+ "displayAnswer": {
+    "shareText": "Share",
+    "deleteText": "Delete",
+    "answeredText": "answered"  
  }
  
 
