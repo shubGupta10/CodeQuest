@@ -25,7 +25,8 @@
         "publictext": "PUBLIC",
         "questiontext": "Questions",
         "tagstext": "Tags",
-        "userstext": "Users"
+        "userstext": "Users",
+        "userLoginHistory": "User Login History"
     },
 
     "askQuestion": {
@@ -200,7 +201,18 @@
     "shareText": "Share",
     "deleteText": "Delete",
     "answeredText": "answered"  
- }
+ },
+
+  "loginhistory": {
+    "Title": "Login History",
+    "date": "Date",
+    "browser": "Browser",
+    "os": "OS",
+    "device": "Device",
+    "ipaddress": "IP Address",
+    "nohistory": "No login history available, Try",
+    "login": "Login..."
+  }
  
 
 }

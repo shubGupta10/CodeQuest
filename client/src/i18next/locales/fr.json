@@ -24,7 +24,8 @@
       "publictext": "PUBLIC",
       "questiontext": "Questions",
       "tagstext": "Tags",
-      "userstext": "Utilisateurs"
+      "userstext": "Utilisateurs",
+      "userLoginHistory": "Historique de connexion de l'utilisateur"
     },
     "askQuestion": {
       "title": "Posez une question publique",
@@ -182,7 +183,19 @@
     "shareText": "Partager",
     "deleteText": "Supprimer",
     "answeredText": "répondu"
+},
+
+ "loginhistory": {
+  "Title": "Historique de connexion",
+  "date": "Date",
+  "browser": "Navigateur",
+  "os": "Système d'exploitation",
+  "device": "Appareil",
+  "ipaddress": "Adresse IP",
+  "nohistory": "Aucun historique de connexion disponible, Essayez",
+  "login": "Connexion..."
 }
+
 
 
 

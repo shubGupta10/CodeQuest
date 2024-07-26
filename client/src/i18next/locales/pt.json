@@ -24,7 +24,8 @@
       "publictext": "PÚBLICO",
       "questiontext": "Perguntas",
       "tagstext": "Tags",
-      "userstext": "Usuários"
+      "userstext": "Usuários",
+      "userLoginHistory": "Histórico de login do usuário"
     },
     "askQuestion": {
       "title": "Faça uma pergunta pública",
@@ -185,6 +186,18 @@
     "shareText": "Compartilhar",
     "deleteText": "Excluir",
     "answeredText": "respondido"
+},
+
+
+"loginhistory": {
+  "Title": "Histórico de login",
+  "date": "Data",
+  "browser": "Navegador",
+  "os": "Sistema Operacional",
+  "device": "Dispositivo",
+  "ipaddress": "Endereço IP",
+  "nohistory": "Nenhum histórico de login disponível, Tente",
+  "login": "Login..."
 }
 
 

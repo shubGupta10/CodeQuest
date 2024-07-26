@@ -22,7 +22,8 @@
       "publictext": "सार्वजनिक",
       "questiontext": "प्रश्न",
       "tagstext": "टैग्स",
-      "userstext": "उपयोगकर्ता"
+      "userstext": "उपयोगकर्ता",
+      "userLoginHistory":  "उपयोगकर्ता लॉगिन इतिहास"
     },
     "homemainbar": {
       "usernullAlert": "प्रश्न पूछने के लिए लॉगिन या साइनअप करें",
@@ -181,7 +182,19 @@
     "shareText": "साझा करें",
     "deleteText": "हटाएं",
     "answeredText": "उत्तर दिया"
+},
+
+ "loginhistory": {
+  "Title": "लॉगिन इतिहास",
+  "date": "तारीख",
+  "browser": "ब्राउज़र",
+  "os": "ऑपरेटिंग सिस्टम",
+  "device": "डिवाइस",
+  "ipaddress": "आईपी पता",
+  "nohistory": "कोई लॉगिन इतिहास उपलब्ध नहीं है, प्रयास करें",
+  "login": "लॉगिन करें..."
 }
+
 
 
 

@@ -24,7 +24,8 @@
       "publictext": "公共",
       "questiontext": "问题",
       "tagstext": "标签",
-      "userstext": "用户"
+      "userstext": "用户",
+      "userLoginHistory":  "用户登录历史"
     },
     "askQuestion": {
       "title": "提一个公开问题",
@@ -183,7 +184,19 @@
     "shareText": "分享",
     "deleteText": "删除",
     "answeredText": "已回答"
+},
+
+ "loginhistory": {
+  "Title": "登录历史",
+  "date": "日期",
+  "browser": "浏览器",
+  "os": "操作系统",
+  "device": "设备",
+  "ipaddress": "IP 地址",
+  "nohistory": "没有可用的登录历史，尝试",
+  "login": "登录..."
 }
+
 
 
 

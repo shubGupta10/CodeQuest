@@ -2,10 +2,66 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import "./LoginHistory.css";
 import { Link } from "react-router-dom";
+import { useTranslation } from 'react-i18next';
+
+const translationCache = {};
+
+const fetchTranslations = async (texts, targetLang) => {
+  const uniqueTexts = [...new Set(texts)];
+  const translations = {};
+
+  for (const text of uniqueTexts) {
+    const cacheKey = `${text}|${targetLang}`;
+    if (translationCache[cacheKey]) {
+      translations[text] = translationCache[cacheKey];
+    } else {
+      try {
+        const response = await fetch(`https://api.mymemory.translated.net/get?q=${encodeURIComponent(text)}&langpair=en|${targetLang}`);
+        const data = await response.json();
+        if (data.responseStatus === 200) {
+          const translatedText = data.responseData.translatedText;
+          translationCache[cacheKey] = translatedText;
+          translations[text] = translatedText;
+        } else {
+          translations[text] = text;
+        }
+      } catch (error) {
+        console.error('Translation failed:', error);
+        translations[text] = text;
+      }
+    }
+  }
+
+  return translations;
+};
 
 const LoginHistory = () => {
   const [loginHistory, setLoginHistory] = useState([]);
   const [loading, setLoading] = useState(true);
+  const { t } = useTranslation();
+  const currentLanguage = localStorage.getItem('i18nextLng') || 'en';
+  
+  useEffect(() => {
+    const container = document.querySelector('.Container');
+    
+    if (container) {
+      if (currentLanguage === "fr") {
+        container.style.backgroundColor = 'yellow';
+      } else if (currentLanguage === "en") {
+        container.style.backgroundColor = 'white';
+        document.body.style.color = "black";
+      } else if (currentLanguage === "hi") {
+        container.style.backgroundColor = "blue";
+        document.body.style.color = "white";
+      } else if (currentLanguage === "zh") {
+        container.style.backgroundColor = "green";
+        document.body.style.color = "white";
+      } else {
+        container.style.backgroundColor = "white";
+        document.body.style.color = "black";
+      }
+    }
+  }, [currentLanguage]);
 
   useEffect(() => {
     const fetchLoginHistory = async () => {
@@ -21,10 +77,28 @@ const LoginHistory = () => {
         );
 
         const latestLogin = response.data;
+        const logins = Array.isArray(latestLogin) ? latestLogin : [latestLogin];
 
-        setLoginHistory(
-          Array.isArray(latestLogin) ? latestLogin : [latestLogin]
-        );
+        // Collect all unique values for translation
+        const browsers = [...new Set(logins.map(login => login.browser))];
+        const oses = [...new Set(logins.map(login => login.os))];
+        const devices = [...new Set(logins.map(login => login.device))];
+
+        // Translate all unique values at once
+        const [translatedBrowsers, translatedOses, translatedDevices] = await Promise.all([
+          fetchTranslations(browsers, currentLanguage),
+          fetchTranslations(oses, currentLanguage),
+          fetchTranslations(devices, currentLanguage),
+        ]);
+
+        const translatedHistory = logins.map(login => ({
+          ...login,
+          browser: translatedBrowsers[login.browser],
+          os: translatedOses[login.os],
+          device: translatedDevices[login.device],
+        }));
+
+        setLoginHistory(translatedHistory);
       } catch (error) {
         console.error("Error fetching login history:", error);
       } finally {
@@ -33,7 +107,7 @@ const LoginHistory = () => {
     };
 
     fetchLoginHistory();
-  }, []);
+  }, [currentLanguage]);
 
   if (loading) {
     return (
@@ -44,17 +118,17 @@ const LoginHistory = () => {
   }
 
   return (
-    <div className="container">
-      <h2 className="title">Login History</h2>
+    <div className="Container">
+      <h2 className="title">{t('loginhistory.Title')}</h2>
       <div className="table-container">
         <table className="login-table">
           <thead>
             <tr>
-              <th>Date</th>
-              <th>Browser</th>
-              <th>OS</th>
-              <th>Device</th>
-              <th>IP Address</th>
+              <th>{t('loginhistory.date')}</th>
+              <th>{t('loginhistory.browser')}</th>
+              <th>{t('loginhistory.os')}</th>
+              <th>{t('loginhistory.device')}</th>
+              <th>{t('loginhistory.ipaddress')}</th>
             </tr>
           </thead>
           <tbody>
@@ -75,9 +149,9 @@ const LoginHistory = () => {
             ) : (
               <tr>
                 <td className="no-login-history" colSpan="5">
-                  No login history available, Try{" "}
+                  {t('loginhistory.nohistory')}{" "}
                   <Link className="login-btn" to="/Auth">
-                    login...
+                    {t('loginhistory.login')}
                   </Link>
                 </td>
               </tr>

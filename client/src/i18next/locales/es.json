@@ -24,7 +24,8 @@
       "publictext": "PÚBLICO",
       "questiontext": "Preguntas",
       "tagstext": "Etiquetas",
-      "userstext": "Usuarios"
+      "userstext": "Usuarios",
+      "userLoginHistory":  "Historial de inicio de sesión del usuario"
     },
     "askQuestion": {
       "title": "Haz una pregunta pública",
@@ -181,7 +182,19 @@
     "shareText": "Compartir",
     "deleteText": "Eliminar",
     "answeredText": "respondido"
+},
+
+ "loginhistory": {
+  "Title": "Historial de inicio de sesión",
+  "date": "Fecha",
+  "browser": "Navegador",
+  "os": "Sistema Operativo",
+  "device": "Dispositivo",
+  "ipaddress": "Dirección IP",
+  "nohistory": "No hay historial de inicio de sesión disponible, Intenta",
+  "login": "Iniciar sesión..."
 }
+
 
 
 
