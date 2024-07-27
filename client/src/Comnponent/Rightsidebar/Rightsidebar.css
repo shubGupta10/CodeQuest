@@ -11,7 +11,6 @@
   }
   
   .widget h4 {
-    /* background-color: #0086d8; */
     margin: 0%;
     padding: 15px;
     border: solid 1px #f1e5bc;
@@ -43,7 +42,6 @@
   .widget-tags h4 {
     margin: 0%;
     padding: 15px;
-    /* background-color: #f8f9f9; */
     border: solid 1px black;
     font-size: 13px;
   }

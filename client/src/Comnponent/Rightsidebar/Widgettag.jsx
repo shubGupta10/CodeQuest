@@ -11,8 +11,9 @@ function Widgettag() {
         widgettag.forEach(widget => {
             if (currentLanguage === 'fr') {
                 widget.style.color = 'black';
-              } else if (currentLanguage === 'en-US') {
+              } else if (currentLanguage === 'en') {
                 widget.style.color = 'black';
+                document.querySelector('.watchTag').style.color = 'black';
               } else if (currentLanguage === 'hi') {
                 widget.style.color = 'white';
               } else if (currentLanguage === 'zh') {
@@ -42,7 +43,7 @@ function Widgettag() {
     ]
     return (
     <div className="widget-tags">
-        <h4>{t('widgeting.watchTg')}</h4>
+        <h4 className='watchTag'>{t('widgeting.watchTg')}</h4>
         <div className="widget-tags-div">
             {tags.map((tag)=>(
                 <p key={tag}>{tag}</p>
