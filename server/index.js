@@ -18,7 +18,7 @@ app.use("/user", userroutes);
 app.use('/questions', questionroutes)
 app.use('/answer',answerroutes)
 app.get('/', (req, res) => {
-    res.send("Codequest is running perfect")
+    res.send("Codequest is running perfectly")
 })
 
 const PORT = process.env.PORT || 5000

@@ -13,14 +13,13 @@ export const otpValidation = async (otpTime) => {
         console.log('Current Time:', currentTime);
         console.log('Expired Minutes:', minutes);
 
-        // OTP expires after 5 minutes
         if (minutes > 5) {
-            return true; // OTP is expired
+            return true; 
         }
 
-        return false; // OTP is valid
+        return false; 
     } catch (error) {
         console.error(error.message);
-        return true; // In case of error, consider OTP as expired
+        return true; 
     }
 };
