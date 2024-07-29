@@ -73,7 +73,7 @@ const LoginHistory = () => {
         }
         const userId = userProfile.result._id;
         const response = await axios.get(
-          `http://localhost:5000/user/login-history/${userId}`
+          `${import.meta.env.BACKEND_URL}/user/login-history/${userId}`
         );
 
         const latestLogin = response.data;

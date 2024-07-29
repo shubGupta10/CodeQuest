@@ -54,7 +54,7 @@ const VerifyOtpPage = () => {
         setIsLoading(true);
 
         try {
-            const response = await fetch('http://localhost:5000/user/verifying-otp', {
+            const response = await fetch(`${import.meta.env.BACKEND_URL}/user/verifying-otp`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',

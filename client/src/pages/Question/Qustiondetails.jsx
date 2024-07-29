@@ -23,7 +23,7 @@ const Qustiondetails = () => {
     const user = useSelector((state) => state.currentuserreducer);
     const location = useLocation();
     const navigate = useNavigate();
-    const url = "http://localhost:3001";
+    const url = "https://codequest-emf6.onrender.com";
     const [translatedQuestionBody, setTranslatedQuestionBody] = useState('');
 
     const currentLanguage = localStorage.getItem('i18nextLng') || 'en';

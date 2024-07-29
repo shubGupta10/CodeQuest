@@ -51,7 +51,7 @@ const VerifyOTP = () => {
   // taken little help of chatGpt to find a little bug in the webapp
   const verifyOTPmessage = async () => {
     try {
-      const response = await axios.post("http://localhost:5000/user/verify-otp", {
+      const response = await axios.post(`${import.meta.env.BACKEND_URL}/user/verify-otp`, {
         phoneNumber: phoneNumber,
         otp: otp
       });

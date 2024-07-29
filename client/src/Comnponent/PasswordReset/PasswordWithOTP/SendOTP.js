@@ -37,7 +37,7 @@ const SendOTP = () => {
 
   const clicktoSend = async () => {
     try {
-      const response = await axios.post("http://localhost:5000/user/send-otp", {
+      const response = await axios.post(`${import.meta.env.BACKEND_URL}/user/send-otp`, {
         phoneNumber: phoneNumber
       });
       setMessage(response.data.msg);
