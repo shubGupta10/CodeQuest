@@ -34,7 +34,7 @@ const PasswordReset = () => {
         setLoading(true);
 
         try {
-            const response = await axios.post(`${import.meta.env.BACKEND_URL}/user/sendpasswordlink`, { email }, {
+            const response = await axios.post(`${import.meta.env.VITE_BACKEND_URL}/user/sendpasswordlink`, { email }, {
                 headers: {
                     "Content-Type": "application/json"
                 }
