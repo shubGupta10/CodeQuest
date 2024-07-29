@@ -53,7 +53,7 @@ const ForgotPassword = () => {
 
     try {
       const response = await axios.post(
-        `http://localhost:5000/user/${id}/${token}`,
+        `https://codequest-emf6.onrender.com/user/${id}/${token}`,
         { password },
         { headers: { 'Content-Type': 'application/json' } }
       );
