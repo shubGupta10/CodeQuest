@@ -34,7 +34,7 @@ const PasswordReset = () => {
         setLoading(true);
 
         try {
-            const response = await axios.post(`${import.meta.env.REACT_APP_BACKEND_URL}/user/sendpasswordlink`, { email }, {
+            const response = await axios.post('https://codequest-emf6.onrender.com/user/sendpasswordlink', { email }, {
                 headers: {
                     "Content-Type": "application/json"
                 }

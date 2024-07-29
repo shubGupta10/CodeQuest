@@ -54,7 +54,7 @@ const VerifyOtpPage = () => {
         setIsLoading(true);
 
         try {
-            const response = await fetch(`${import.meta.env.REACT_APP_BACKEND_URL}/user/verifying-otp`, {
+            const response = await fetch('https://codequest-emf6.onrender.com/user/verifying-otp', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',

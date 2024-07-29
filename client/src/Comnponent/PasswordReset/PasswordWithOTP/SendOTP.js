@@ -37,7 +37,7 @@ const SendOTP = () => {
 
   const clicktoSend = async () => {
     try {
-      const response = await axios.post(`${import.meta.env.REACT_APP_BACKEND_URL}/user/send-otp`, {
+      const response = await axios.post('https://codequest-emf6.onrender.com/user/send-otp', {
         phoneNumber: phoneNumber
       });
       setMessage(response.data.msg);

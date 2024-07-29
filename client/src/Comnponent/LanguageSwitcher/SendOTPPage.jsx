@@ -42,7 +42,7 @@ const SendOtpPage = () => {
         setIsLoading(true);
 
         try {
-            const response = await fetch(`${import.meta.env.REACT_APP_BACKEND_URL}/user/sending-otp`, {
+            const response = await fetch('https://codequest-emf6.onrender.com/user/sending-otp', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',

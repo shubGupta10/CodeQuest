@@ -13,7 +13,7 @@ const SendOtpForm = () => {
         e.preventDefault();
         setLoading(true); 
         try {
-            const response = await axios.post(`${import.meta.env.REACT_APP_BACKEND_URL}/user/send-email-otp`, { email });
+            const response = await axios.post('https://codequest-emf6.onrender.com/user/send-email-otp', { email });
             
             if (response.data && response.status === 200) {
                 setMessage('OTP sent successfully! Redirecting to verification form...');

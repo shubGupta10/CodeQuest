@@ -9,7 +9,7 @@ const ForgotPassword = () => {
 
   const userValid = async () => {
     try {
-      const response = await axios.get(`${import.meta.env.REACT_APP_BACKEND_URL}/user/forgotpassword/${id}/${token}`);
+      const response = await axios.get('https://codequest-emf6.onrender.com/user/forgotpassword/${id}/${token}');
       const { status } = response.data;
 
       if (status === 201) {

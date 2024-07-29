@@ -73,7 +73,7 @@ const LoginHistory = () => {
         }
         const userId = userProfile.result._id;
         const response = await axios.get(
-          `${import.meta.env.REACT_APP_BACKEND_URL}/user/login-history/${userId}`
+          'https://codequest-emf6.onrender.com/user/login-history/${userId}'
         );
 
         const latestLogin = response.data;
