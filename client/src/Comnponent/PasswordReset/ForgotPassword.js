@@ -11,7 +11,7 @@ const ForgotPassword = () => {
     try {
       const response = await axios.get(`https://codequest-emf6.onrender.com/user/forgotpassword/${id}/${token}`);
       const { status } = response.data;
-
+      console.log(response.data);
       if (status === 201) {
         console.log('User valid');
       } else {
