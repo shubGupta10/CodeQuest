@@ -4,6 +4,7 @@ import './SendOtpPage.css';
 import { useTranslation } from 'react-i18next';
 
 const SendOtpPage = () => {
+    const backendUrl = import.meta.env.VITE_BACKEND_URL || 'https://codequest-emf6.onrender.com';
     const [phoneNumber, setPhoneNumber] = useState('');
     const [error, setError] = useState('');
     const location = useLocation();
@@ -42,7 +43,7 @@ const SendOtpPage = () => {
         setIsLoading(true);
 
         try {
-            const response = await fetch(`${import.meta.env.VITE_BACKEND_URL}/user/sending-otp`, {
+            const response = await fetch('backendUrl/user/sending-otp', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
