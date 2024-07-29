@@ -98,7 +98,7 @@ export const sendPasswordLink = async (req,res) => {
                 from: "shubhamkgupta720@gmail.com",
                 to: email,
                 subject: "Sending email to reset password",
-                text: `This link will expires in 1 hour http://localhost:3000/forgotpassword/${findUserintoDB.id}/${findUserintoDB.verifiedToken}`
+                text: `This link will expires in 1 hour https://codequest-emf6.onrender.com/forgotpassword/${findUserintoDB.id}/${findUserintoDB.verifiedToken}`
             }
 
             transporter.sendMail(mailOptions, (error, info) => {

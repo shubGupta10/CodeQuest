@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Routes, Route, useNavigate } from 'react-router-dom';
+import { Routes, Route, useNavigate, Navigate } from 'react-router-dom';
 import Home from './pages/Home/Home';
 import Askquestion from './pages/Askquestion/Askquestion';
 import Auth from './pages/Auth/Auth';
@@ -25,11 +25,41 @@ function Allroutes({ slidein, handleslidein }) {
   const [accessDenied, setAccessDenied] = useState(false);
   const navigate = useNavigate();
 
-  //Taken a little help of chatGpt to fix an issue.
+  const publicRoutes = ['/Auth', '/choose', '/password-reset', '/send-otp', '/verify-otp', '/forgotpassword'];
+
+  const isAuthenticated = () => {
+    const userProfile = JSON.parse(localStorage.getItem('Profile'));
+    return userProfile && userProfile.result._id;
+  };
+
+  const getRouteElement = (route) => {
+    switch (route) {
+      case '/Auth':
+        return <Auth />;
+      case '/choose':
+        return <ChooseOption slidein={slidein} handleslidein={handleslidein} />;
+      case '/password-reset':
+        return <PasswordReset slidein={slidein} handleslidein={handleslidein} />;
+      case '/send-otp':
+        return <SendOTP slidein={slidein} handleslidein={handleslidein} />;
+      case '/verify-otp':
+        return <VerifyOTP slidein={slidein} handleslidein={handleslidein} />;
+      case '/forgotpassword':
+        return <Route path='/forgotpassword/:id/:token' element={<ForgotPassword slidein={slidein} handleslidein={handleslidein} />} />;
+      default:
+        return null;
+    }
+  };
+
   useEffect(() => {
     const checkAccessRestrictions = () => {
-      const userProfile = JSON.parse(localStorage.getItem('Profile'));
-      if (!userProfile || !userProfile.result._id) {
+      const currentPath = window.location.pathname;
+      
+      if (publicRoutes.some(route => currentPath.startsWith(route))) {
+        return;
+      }
+
+      if (!isAuthenticated()) {
         console.error('User profile or ID not found in localStorage');
         navigate('/Auth'); 
         return;
@@ -59,24 +89,27 @@ function Allroutes({ slidein, handleslidein }) {
   return (
     <ColorSwitcher>
       <Routes>
-        <Route path='/' element={<Home slidein={slidein} handleslidein={handleslidein} />} />
-        <Route path='/Askquestion' element={<Askquestion />} />
-        <Route path='/email-otp-form' element={<EmailOtpForm slidein={slidein} handleslidein={handleslidein} />} />
-        <Route path='/verify-email-otp' element={<VerifyOtpForm slidein={slidein} handleslidein={handleslidein} />} />
-        <Route path='/Auth' element={<Auth />} />
-        <Route path='/Question' element={<Question slidein={slidein} handleslidein={handleslidein} />} />
-        <Route path='/Question/:id' element={<Displayquestion slidein={slidein} handleslidein={handleslidein} />} />
-        <Route path='/Tags' element={<Tags slidein={slidein} handleslidein={handleslidein} />} />
-        <Route path='/Users' element={<Users slidein={slidein} handleslidein={handleslidein} />} />
-        <Route path='/Users/:id' element={<Userprofile slidein={slidein} handleslidein={handleslidein} />} />
-        <Route path='/choose' element={<ChooseOption slidein={slidein} handleslidein={handleslidein} />} />
-        <Route path='/password-reset' element={<PasswordReset slidein={slidein} handleslidein={handleslidein} />} />
+        {publicRoutes.map(route => (
+          <Route key={route} path={route} element={getRouteElement(route)} />
+        ))}
         <Route path='/forgotpassword/:id/:token' element={<ForgotPassword slidein={slidein} handleslidein={handleslidein} />} />
-        <Route path='/send-otp' element={<SendOTP slidein={slidein} handleslidein={handleslidein} />} />
-        <Route path='/verify-otp' element={<VerifyOTP slidein={slidein} handleslidein={handleslidein} />} />
-        <Route path='/sending-otp' element={<SendOtpPage slidein={slidein} handleslidein={handleslidein} />} />
-        <Route path='/verifying-otp' element={<VerifyOtpPage slidein={slidein} handleslidein={handleslidein} />} />
-        <Route path='/user-Info' element={<UserInfo slidein={slidein} handleslidein={handleslidein} />} />
+        {isAuthenticated() && (
+          <>
+            <Route path='/' element={<Home slidein={slidein} handleslidein={handleslidein} />} />
+            <Route path='/Askquestion' element={<Askquestion />} />
+            <Route path='/Question' element={<Question slidein={slidein} handleslidein={handleslidein} />} />
+            <Route path='/Question/:id' element={<Displayquestion slidein={slidein} handleslidein={handleslidein} />} />
+            <Route path='/Tags' element={<Tags slidein={slidein} handleslidein={handleslidein} />} />
+            <Route path='/Users' element={<Users slidein={slidein} handleslidein={handleslidein} />} />
+            <Route path='/Users/:id' element={<Userprofile slidein={slidein} handleslidein={handleslidein} />} />
+            <Route path='/email-otp-form' element={<EmailOtpForm slidein={slidein} handleslidein={handleslidein} />} />
+            <Route path='/verify-email-otp' element={<VerifyOtpForm slidein={slidein} handleslidein={handleslidein} />} />
+            <Route path='/sending-otp' element={<SendOtpPage slidein={slidein} handleslidein={handleslidein} />} />
+            <Route path='/verifying-otp' element={<VerifyOtpPage slidein={slidein} handleslidein={handleslidein} />} />
+            <Route path='/user-Info' element={<UserInfo slidein={slidein} handleslidein={handleslidein} />} />
+          </>
+        )}
+        <Route path="*" element={<Navigate to="/Auth" replace />} />
       </Routes>
     </ColorSwitcher>
   );
