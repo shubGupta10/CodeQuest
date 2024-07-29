@@ -73,7 +73,7 @@ const VerifyOTP = () => {
 
   const updatePassword = async () => {
     try {
-      const response = await axios.put("http://localhost:5000/user/update-password", {
+      const response = await axios.put("https://codequest-emf6.onrender.com/user/update-password", {
         phoneNumber: phoneNumber,
         otp: otp,
         newPassword: newPassword
