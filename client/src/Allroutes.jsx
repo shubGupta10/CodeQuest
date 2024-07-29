@@ -25,7 +25,7 @@ function Allroutes({ slidein, handleslidein }) {
   const [accessDenied, setAccessDenied] = useState(false);
   const navigate = useNavigate();
 
-  const publicRoutes = ['/Auth', '/choose', '/password-reset', '/send-otp', '/verify-otp', '/forgotpassword'];
+  const publicRoutes = ['/Auth', '/choose', '/password-reset', '/send-otp', '/verify-otp'];
 
   const isAuthenticated = () => {
     const userProfile = JSON.parse(localStorage.getItem('Profile'));
@@ -44,8 +44,6 @@ function Allroutes({ slidein, handleslidein }) {
         return <SendOTP slidein={slidein} handleslidein={handleslidein} />;
       case '/verify-otp':
         return <VerifyOTP slidein={slidein} handleslidein={handleslidein} />;
-      case '/forgotpassword':
-        return <Route path='/forgotpassword/:id/:token' element={<ForgotPassword slidein={slidein} handleslidein={handleslidein} />} />;
       default:
         return null;
     }
