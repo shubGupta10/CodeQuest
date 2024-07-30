@@ -13,6 +13,8 @@
       "phoneNumber": "फ़ोन नंबर",
       "login": "लॉग इन करें",
       "signup": "साइन अप करें",
+      "registering": "पंजीकरण कर रहे हैं...",
+    "loggingIn": "लॉग इन कर रहे हैं...",
       "alreadyHaveAccount": "पहले से एक खाता है?",
       "dontHaveAccount": "कोई खाता नहीं है?",
       "forgotPassword": "पासवर्ड भूल गए?"

@@ -14,6 +14,7 @@ const Auth = () => {
   const [password, setpassword] = useState("");
   const [phoneNumber, setPhoneNumber] = useState("");
   const { t } = useTranslation(); 
+  const [isSubmitting, setIsSubmitting] = useState(false); // New state for button text
 
   const currentLanguage = localStorage.getItem("i18nextLng");
 
@@ -44,15 +45,18 @@ const Auth = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-
   const handlesubmit = (e) => {
     e.preventDefault();
     if (email && password) {
+      setIsSubmitting(true); // Set submitting state
       if (issignup) {
         if (name) {
-          dispatch(signup({ name, email, phoneNumber, password }, navigate));
+          dispatch(signup({ name, email, phoneNumber, password }, navigate)).finally(() => {
+            setIsSubmitting(false); // Reset submitting state
+          });
         } else {
           alert(t("auth.nameEnter"));
+          setIsSubmitting(false); // Reset submitting state
         }
       } else {
         dispatch(login({ email, password }, navigate)).then(() => {
@@ -65,13 +69,14 @@ const Auth = () => {
           }
         }).catch((err) => {
           console.error('Login failed', err);
+        }).finally(() => {
+          setIsSubmitting(false); // Reset submitting state
         });
       }
     } else {
       alert(t('auth.successAlert'));
     }
   };
-
 
   const handleswitch = () => {
     setissignup(!issignup);
@@ -152,7 +157,7 @@ const Auth = () => {
             </>
           )}
           <button type="submit" className="auth-btn">
-            {issignup ? t('auth.signup') : t('auth.login')}
+            {isSubmitting ? (issignup ? t('auth.registering') : t('auth.loggingIn')) : (issignup ? t('auth.signup') : t('auth.login'))}
           </button>
         </form>
         <p className="isSignup">
