@@ -31,7 +31,6 @@ function Allroutes({ slidein, handleslidein }) {
     '/password-reset',
     '/send-otp',
     '/verify-otp',
-    '/forgotpassword/:id/:token'
   ];
 
   const isAuthenticated = () => {
@@ -51,8 +50,6 @@ function Allroutes({ slidein, handleslidein }) {
         return <SendOTP slidein={slidein} handleslidein={handleslidein} />;
       case '/verify-otp':
         return <VerifyOTP slidein={slidein} handleslidein={handleslidein} />;
-      case '/forgotpassword/:id/:token':
-        return <ForgotPassword slidein={slidein} handleslidein={handleslidein} />;
       default:
         return null;
     }
@@ -61,7 +58,11 @@ function Allroutes({ slidein, handleslidein }) {
   useEffect(() => {
     const checkAccessRestrictions = () => {
       const currentPath = window.location.pathname;
-      
+
+      if (currentPath.startsWith('/forgotpassword/')) {
+        return; 
+      }
+
       if (publicRoutes.some(route => currentPath.startsWith(route))) {
         return;
       }
@@ -99,6 +100,10 @@ function Allroutes({ slidein, handleslidein }) {
         {publicRoutes.map(route => (
           <Route key={route} path={route} element={getRouteElement(route)} />
         ))}
+       <Route 
+          path='/forgotpassword/:id/:token' 
+          element={<ForgotPassword slidein={slidein} handleslidein={handleslidein} />} 
+        />
         {isAuthenticated() && (
           <>
             <Route path='/' element={<Home slidein={slidein} handleslidein={handleslidein} />} />
