@@ -161,25 +161,19 @@ export const passwordUpdate = async (req, res) => {
   // got little help of chatGpt to fix the issues and little bugs into UI.
 export const sendOtp = async (req, res) => {
     try {
-
         const {phoneNumber} = req.body;
-
         const otp = optgenerator.generate(6, {lowerCaseAlphabets: false, specialChars: false});
-
         const newdate = new Date();
-
          await users.findOneAndUpdate(
             {phoneNumber},
             {otp, otpExpired: new Date(newdate.getTime())},
             {upsert: true, new: true, setDefaultOnInsert: true}
         )
-
         await twilioSetup.messages.create({
             body: `Your Otp is: ${otp}`,
             to: phoneNumber,
             from: process.env.TWILIO_PHONE_NUMBER
         });
-
         return res.status(200).json({
             success: true,
             msg: "OTP sent successfully"
@@ -197,34 +191,27 @@ export const sendOtp = async (req, res) => {
 export const verifyOTP = async (req, res) => {
     try {
         const {phoneNumber, otp} = req.body;
-
         const otpData = await users.findOne({
             phoneNumber,
             otp
         });
-
         if(!otpData){
             return res.status(400).json({
                 success: false,
                 msg: "Your entered wrong Otp!"
             });
         }
-
         const isOtpVerified = await otpValidation(otpData.otpExpired);
-
         if(isOtpVerified){
             return res.status(400).json({
                 success: false,
                 msg: "Your OTP has been expired!"
             })
         }
-
         return res.status(200).json({
             success: true,
             msg: "Your OTP Verified Successfully!"
         })
-
-
     } catch (error) {
         return res.status(400).json({
             success: false,

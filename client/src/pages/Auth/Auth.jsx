@@ -48,15 +48,15 @@ const Auth = () => {
   const handlesubmit = (e) => {
     e.preventDefault();
     if (email && password) {
-      setIsSubmitting(true); // Set submitting state
+      setIsSubmitting(true);
       if (issignup) {
         if (name) {
           dispatch(signup({ name, email, phoneNumber, password }, navigate)).finally(() => {
-            setIsSubmitting(false); // Reset submitting state
+            setIsSubmitting(false); 
           });
         } else {
           alert(t("auth.nameEnter"));
-          setIsSubmitting(false); // Reset submitting state
+          setIsSubmitting(false); 
         }
       } else {
         dispatch(login({ email, password }, navigate)).then(() => {
@@ -70,7 +70,7 @@ const Auth = () => {
         }).catch((err) => {
           console.error('Login failed', err);
         }).finally(() => {
-          setIsSubmitting(false); // Reset submitting state
+          setIsSubmitting(false); 
         });
       }
     } else {
