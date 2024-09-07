@@ -10,6 +10,7 @@ router.post('/signup', extractUserInfo, signup);
 router.post('/login', extractUserInfo, login);
 
 // route to send email to reset password
+//send email route
 router.post('/sendpasswordlink', sendPasswordLink);
 
 // route to validate user at password reset time
