@@ -1,3 +1,4 @@
+//otp validation
 export const otpValidation = async (otpTime) => {
     try {
         const currentTime = new Date();
