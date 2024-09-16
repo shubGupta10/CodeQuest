@@ -21,6 +21,7 @@ export const fetchallquestion = () => async (dispatch) => {
     }
 }
 
+//delete questions 
 export const deletequestion = (id, navigate) => async (dispatch) => {
     try {
         await api.deletequestion(id);
