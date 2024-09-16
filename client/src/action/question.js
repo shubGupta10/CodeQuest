@@ -11,6 +11,7 @@ export const askquestion = (questiondata, navigate) => async (dispatch) => {
     }
 };
 
+//fetch all questions 
 export const fetchallquestion = () => async (dispatch) => {
     try {
         const { data } = await api.getallquestions();
