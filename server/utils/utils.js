@@ -17,6 +17,7 @@ const userInfo = (userAgent) => {
     return { browser, os, device };
 };
 
+//get ip address
 const getIPAdress = (req) => {
     return requestIp.getClientIp(req);
 };
