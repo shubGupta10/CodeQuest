@@ -9,6 +9,8 @@ const app = express();
 dotenv.config();
 app.use(express.json({ limit: "30mb", extended: true }))
 app.use(express.urlencoded({ limit: "30mb", extended: true }))
+
+//cors Middleware
 app.use(cors());
 
 
