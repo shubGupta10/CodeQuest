@@ -11,7 +11,7 @@ const UserLoginHistorySchema = new mongoose.Schema({
     Timestamp: {type: Date, default: Date.now}
 });
 
-
+//user login history
 const UserLoginHistory = mongoose.model('LoginHistory', UserLoginHistorySchema);
 
 export {UserLoginHistory}
