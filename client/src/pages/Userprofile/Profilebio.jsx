@@ -1,6 +1,7 @@
 import React from 'react'
 import { useTranslation } from 'react-i18next'
 
+//profile bio
 const Profilebio = ({currentprofile}) => {
 
   const {t} = useTranslation();
